@@ -243,7 +243,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
     <div class="topbar-inner">
       <div class="brand">
         <span class="brand-kicker">CONTROLE DE F&Aacute;BRICA JJ</span>
-        <h1>Painel de Pendências de Produ&ccedil;&atilde;o</h1>
+        <h1>Painel de Pend&ecirc;ncias de Produ&ccedil;&atilde;o</h1>
       </div>
       <div class="meta">Gerado em <strong>17/09/2026</strong></div>
     </div>
@@ -4330,6 +4330,8 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
   </footer>
 </div>
 
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
 <script>
 (function() {
   const search = document.getElementById('search');
@@ -4495,14 +4497,24 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
 
   recompute();
 
+  const firebaseConfig = {
+    apiKey: "AIzaSyC70WhQDuARGInhCqx9rwxCjIL0y7rTPio",
+    authDomain: "painel-fabrica-jj.firebaseapp.com",
+    projectId: "painel-fabrica-jj",
+    storageBucket: "painel-fabrica-jj.firebasestorage.app",
+    messagingSenderId: "812047834200",
+    appId: "1:812047834200:web:da32d269baac2323f73e2d"
+  };
+
   async function initDb() {
-    if (!window.claude || typeof window.claude.use !== 'function') {
+    if (!window.firebase || typeof firebase.initializeApp !== 'function') {
       if (statusEl) statusEl.textContent = '';
       document.querySelectorAll('.mark-btn, #clear-marks').forEach(b => b.disabled = true);
       return;
     }
     try {
-      db = await window.claude.use('db');
+      if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
+      db = firebase.firestore();
     } catch (e) {
       db = null;
     }
