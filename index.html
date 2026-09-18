@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-<title>Painel de Pendências</title>
+<title>Painel de Pend&ecirc;ncias</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap">
 <style>
 :root {
@@ -197,7 +197,7 @@ details.carga-block {
 }
 details.carga-block > summary {
   display: flex; align-items: center; gap: 9px; cursor: pointer; list-style: none;
-  padding: 7px 10px; font-size: 12px; flex-wrap: nowrap;
+  padding: 7px 10px; font-size: 12px; flex-wrap: wrap;
 }
 details.carga-block > summary::-webkit-details-marker { display: none; }
 .carga-id { font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 12px; white-space: nowrap; }
@@ -206,6 +206,7 @@ details.carga-block > summary::-webkit-details-marker { display: none; }
 .carga-bar-fill { display: block; height: 100%; }
 .carga-stat { color: var(--muted); font-size: 11px; white-space: nowrap; }
 .carga-stat-pend b { color: var(--crit); }
+.carga-cidades { flex-basis: 100%; font-size: 10.5px; color: var(--muted); white-space: normal; overflow-wrap: break-word; }
 .carga-body { border-top: 1px solid var(--line); padding: 4px 10px 8px; }
 
 /* ---------------- pedido / itens ---------------- */
@@ -274,7 +275,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="brand-kicker">CONTROLE DE F&Aacute;BRICA JJ</span>
         <h1>Painel de Pend&ecirc;ncias de Produ&ccedil;&atilde;o</h1>
       </div>
-      <div class="meta">Gerado em <strong>18/09/2026 08:00</strong></div>
+      <div class="meta">Gerado em <strong>18/09/2026 10:18</strong></div>
       <button class="btn topbar-toggle" id="topbar-toggle" type="button" aria-expanded="true" aria-controls="topbar-collapsible">&#9650; Recolher topo</button>
     </div>
     <div class="topbar-collapsible" id="topbar-collapsible">
@@ -317,6 +318,17 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
     </div>
   </div>
 
+  <div class="pw-overlay hidden" id="extend-overlay">
+    <div class="pw-modal">
+      <h3>Estender marca&ccedil;&atilde;o?</h3>
+      <p id="extend-text">Este produto tamb&eacute;m aparece em outras opera&ccedil;&otilde;es deste pedido.</p>
+      <div class="pw-actions">
+        <button class="btn" id="extend-no" type="button">N&atilde;o, s&oacute; aqui</button>
+        <button class="btn pw-confirm" id="extend-yes" type="button">Sim, estender</button>
+      </div>
+    </div>
+  </div>
+
   <main>
     
     <section class="day">
@@ -353,6 +365,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="carga-stat"><span id="ca4-npedidos">1</span> pedido(s) &middot; <span id="ca4-nprodutos">14</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca4-pend">448</b> pendentes</span>
         <span id="ca4-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-cidades">FRANCO DA ROCHA/SP</span>
       </summary>
       <div class="carga-body">
     <div class="pedido-block">
@@ -571,6 +584,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="carga-stat"><span id="ca6-npedidos">2</span> pedido(s) &middot; <span id="ca6-nprodutos">6</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca6-pend">38</b> pendentes</span>
         <span id="ca6-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-cidades">BOM JESUS DA SERRA/BA / TUCANO/BA</span>
       </summary>
       <div class="carga-body">
     <div class="pedido-block">
@@ -730,6 +744,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="carga-stat"><span id="ca9-npedidos">1</span> pedido(s) &middot; <span id="ca9-nprodutos">2</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca9-pend">36</b> pendentes</span>
         <span id="ca9-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-cidades">ANANINDEUA/PA</span>
       </summary>
       <div class="carga-body">
     <div class="pedido-block">
@@ -780,6 +795,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="carga-stat"><span id="ca11-npedidos">1</span> pedido(s) &middot; <span id="ca11-nprodutos">7</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca11-pend">19</b> pendentes</span>
         <span id="ca11-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-cidades">TERESINA/PI</span>
       </summary>
       <div class="carga-body">
     <div class="pedido-block">
@@ -900,6 +916,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="carga-stat"><span id="ca13-npedidos">1</span> pedido(s) &middot; <span id="ca13-nprodutos">1</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca13-pend">2</b> pendentes</span>
         <span id="ca13-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-cidades">CIANORTE/PR</span>
       </summary>
       <div class="carga-body">
     <div class="pedido-block">
@@ -944,6 +961,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="carga-stat"><span id="ca16-npedidos">1</span> pedido(s) &middot; <span id="ca16-nprodutos">3</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca16-pend">3</b> pendentes</span>
         <span id="ca16-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-cidades">PONTA PORA/MS</span>
       </summary>
       <div class="carga-body">
     <div class="pedido-block">
@@ -1026,6 +1044,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="carga-stat"><span id="ca20-npedidos">1</span> pedido(s) &middot; <span id="ca20-nprodutos">6</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca20-pend">100</b> pendentes</span>
         <span id="ca20-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-cidades">FRANCO DA ROCHA/SP</span>
       </summary>
       <div class="carga-body">
     <div class="pedido-block">
@@ -1132,6 +1151,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="carga-stat"><span id="ca22-npedidos">2</span> pedido(s) &middot; <span id="ca22-nprodutos">4</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca22-pend">36</b> pendentes</span>
         <span id="ca22-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-cidades">BOM JESUS DA SERRA/BA / TUCANO/BA</span>
       </summary>
       <div class="carga-body">
     <div class="pedido-block">
@@ -1263,6 +1283,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="carga-stat"><span id="ca25-npedidos">1</span> pedido(s) &middot; <span id="ca25-nprodutos">2</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca25-pend">36</b> pendentes</span>
         <span id="ca25-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-cidades">ANANINDEUA/PA</span>
       </summary>
       <div class="carga-body">
     <div class="pedido-block">
@@ -1331,6 +1352,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="carga-stat"><span id="ca29-npedidos">1</span> pedido(s) &middot; <span id="ca29-nprodutos">4</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca29-pend">88</b> pendentes</span>
         <span id="ca29-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-cidades">FRANCO DA ROCHA/SP</span>
       </summary>
       <div class="carga-body">
     <div class="pedido-block">
@@ -1409,6 +1431,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="carga-stat"><span id="ca31-npedidos">2</span> pedido(s) &middot; <span id="ca31-nprodutos">4</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca31-pend">36</b> pendentes</span>
         <span id="ca31-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-cidades">BOM JESUS DA SERRA/BA / TUCANO/BA</span>
       </summary>
       <div class="carga-body">
     <div class="pedido-block">
@@ -1540,6 +1563,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="carga-stat"><span id="ca34-npedidos">1</span> pedido(s) &middot; <span id="ca34-nprodutos">2</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca34-pend">36</b> pendentes</span>
         <span id="ca34-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-cidades">ANANINDEUA/PA</span>
       </summary>
       <div class="carga-body">
     <div class="pedido-block">
@@ -1590,6 +1614,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="carga-stat"><span id="ca36-npedidos">1</span> pedido(s) &middot; <span id="ca36-nprodutos">1</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca36-pend">2</b> pendentes</span>
         <span id="ca36-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-cidades">CIANORTE/PR</span>
       </summary>
       <div class="carga-body">
     <div class="pedido-block">
@@ -1644,6 +1669,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="carga-stat"><span id="ca40-npedidos">5</span> pedido(s) &middot; <span id="ca40-nprodutos">5</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca40-pend">7</b> pendentes</span>
         <span id="ca40-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-cidades">ANANINDEUA/PA / BELEM/PA / PONTA PORA/MS / TAILANDIA/PA</span>
       </summary>
       <div class="carga-body">
     <div class="pedido-block">
@@ -1794,6 +1820,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="carga-stat"><span id="ca46-npedidos">1</span> pedido(s) &middot; <span id="ca46-nprodutos">2</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca46-pend">2</b> pendentes</span>
         <span id="ca46-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-cidades">SAO RAIMUNDO NONATO/PI</span>
       </summary>
       <div class="carga-body">
     <div class="pedido-block">
@@ -1844,6 +1871,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="carga-stat"><span id="ca48-npedidos">1</span> pedido(s) &middot; <span id="ca48-nprodutos">2</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca48-pend">2</b> pendentes</span>
         <span id="ca48-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-cidades">TUCANO/BA</span>
       </summary>
       <div class="carga-body">
     <div class="pedido-block">
@@ -1902,6 +1930,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="carga-stat"><span id="ca51-npedidos">1</span> pedido(s) &middot; <span id="ca51-nprodutos">1</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca51-pend">1</b> pendentes</span>
         <span id="ca51-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-cidades">TERESINA/PI</span>
       </summary>
       <div class="carga-body">
     <div class="pedido-block">
@@ -1956,6 +1985,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="carga-stat"><span id="ca55-npedidos">1</span> pedido(s) &middot; <span id="ca55-nprodutos">1</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca55-pend">1</b> pendentes</span>
         <span id="ca55-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-cidades">CIANORTE/PR</span>
       </summary>
       <div class="carga-body">
     <div class="pedido-block">
@@ -1992,6 +2022,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="carga-stat"><span id="ca57-npedidos">1</span> pedido(s) &middot; <span id="ca57-nprodutos">1</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca57-pend">1</b> pendentes</span>
         <span id="ca57-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-cidades">SAO RAIMUNDO NONATO/PI</span>
       </summary>
       <div class="carga-body">
     <div class="pedido-block">
@@ -2046,6 +2077,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="carga-stat"><span id="ca61-npedidos">1</span> pedido(s) &middot; <span id="ca61-nprodutos">1</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca61-pend">1</b> pendentes</span>
         <span id="ca61-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-cidades">CIANORTE/PR</span>
       </summary>
       <div class="carga-body">
     <div class="pedido-block">
@@ -2082,6 +2114,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="carga-stat"><span id="ca63-npedidos">1</span> pedido(s) &middot; <span id="ca63-nprodutos">1</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca63-pend">1</b> pendentes</span>
         <span id="ca63-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-cidades">SAO RAIMUNDO NONATO/PI</span>
       </summary>
       <div class="carga-body">
     <div class="pedido-block">
@@ -2136,6 +2169,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="carga-stat"><span id="ca67-npedidos">2</span> pedido(s) &middot; <span id="ca67-nprodutos">2</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca67-pend">2</b> pendentes</span>
         <span id="ca67-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-cidades">ANANINDEUA/PA / PONTA PORA/MS</span>
       </summary>
       <div class="carga-body">
     <div class="pedido-block">
@@ -2215,6 +2249,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="carga-stat"><span id="ca72-npedidos">1</span> pedido(s) &middot; <span id="ca72-nprodutos">1</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca72-pend">1</b> pendentes</span>
         <span id="ca72-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-cidades">PONTA PORA/MS</span>
       </summary>
       <div class="carga-body">
     <div class="pedido-block">
@@ -2269,6 +2304,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="carga-stat"><span id="ca76-npedidos">1</span> pedido(s) &middot; <span id="ca76-nprodutos">1</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca76-pend">1</b> pendentes</span>
         <span id="ca76-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-cidades">PONTA PORA/MS</span>
       </summary>
       <div class="carga-body">
     <div class="pedido-block">
@@ -2334,6 +2370,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="carga-stat"><span id="ca81-npedidos">1</span> pedido(s) &middot; <span id="ca81-nprodutos">39</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca81-pend">1895</b> pendentes</span>
         <span id="ca81-pill" class="pill pill-warn pill-compact">10%</span>
+        <span class="carga-cidades">RIO BONITO DO IGUACU/PR</span>
       </summary>
       <div class="carga-body">
     <div class="pedido-block">
@@ -2902,6 +2939,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="carga-stat"><span id="ca83-npedidos">2</span> pedido(s) &middot; <span id="ca83-nprodutos">24</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca83-pend">1108</b> pendentes</span>
         <span id="ca83-pill" class="pill pill-warn pill-compact">13%</span>
+        <span class="carga-cidades">PAULISTANA/PI</span>
       </summary>
       <div class="carga-body">
     <div class="pedido-block">
@@ -3271,6 +3309,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="carga-stat"><span id="ca86-npedidos">1</span> pedido(s) &middot; <span id="ca86-nprodutos">1</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca86-pend">78</b> pendentes</span>
         <span id="ca86-pill" class="pill pill-warn pill-compact">17%</span>
+        <span class="carga-cidades">OTACILIO COSTA/SC</span>
       </summary>
       <div class="carga-body">
     <div class="pedido-block">
@@ -3315,6 +3354,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="carga-stat"><span id="ca89-npedidos">1</span> pedido(s) &middot; <span id="ca89-nprodutos">9</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca89-pend">409</b> pendentes</span>
         <span id="ca89-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-cidades">PAULISTANA/PI</span>
       </summary>
       <div class="carga-body">
     <div class="pedido-block">
@@ -3463,6 +3503,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="carga-stat"><span id="ca91-npedidos">1</span> pedido(s) &middot; <span id="ca91-nprodutos">3</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca91-pend">206</b> pendentes</span>
         <span id="ca91-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-cidades">OTACILIO COSTA/SC</span>
       </summary>
       <div class="carga-body">
     <div class="pedido-block">
@@ -3545,6 +3586,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="carga-stat"><span id="ca95-npedidos">1</span> pedido(s) &middot; <span id="ca95-nprodutos">37</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca95-pend">1882</b> pendentes</span>
         <span id="ca95-pill" class="pill pill-warn pill-compact">10%</span>
+        <span class="carga-cidades">RIO BONITO DO IGUACU/PR</span>
       </summary>
       <div class="carga-body">
     <div class="pedido-block">
@@ -4085,6 +4127,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="carga-stat"><span id="ca97-npedidos">2</span> pedido(s) &middot; <span id="ca97-nprodutos">21</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca97-pend">361</b> pendentes</span>
         <span id="ca97-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-cidades">PAULISTANA/PI</span>
       </summary>
       <div class="carga-body">
     <div class="pedido-block">
@@ -4412,6 +4455,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="carga-stat"><span id="ca100-npedidos">1</span> pedido(s) &middot; <span id="ca100-nprodutos">1</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca100-pend">78</b> pendentes</span>
         <span id="ca100-pill" class="pill pill-warn pill-compact">17%</span>
+        <span class="carga-cidades">OTACILIO COSTA/SC</span>
       </summary>
       <div class="carga-body">
     <div class="pedido-block">
@@ -4456,6 +4500,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="carga-stat"><span id="ca103-npedidos">1</span> pedido(s) &middot; <span id="ca103-nprodutos">11</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca103-pend">397</b> pendentes</span>
         <span id="ca103-pill" class="pill pill-warn pill-compact">2%</span>
+        <span class="carga-cidades">PAULISTANA/PI</span>
       </summary>
       <div class="carga-body">
     <div class="pedido-block">
@@ -4632,6 +4677,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="carga-stat"><span id="ca105-npedidos">1</span> pedido(s) &middot; <span id="ca105-nprodutos">3</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca105-pend">206</b> pendentes</span>
         <span id="ca105-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-cidades">OTACILIO COSTA/SC</span>
       </summary>
       <div class="carga-body">
     <div class="pedido-block">
@@ -4714,6 +4760,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="carga-stat"><span id="ca109-npedidos">1</span> pedido(s) &middot; <span id="ca109-nprodutos">28</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca109-pend">618</b> pendentes</span>
         <span id="ca109-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-cidades">RIO BONITO DO IGUACU/PR</span>
       </summary>
       <div class="carga-body">
     <div class="pedido-block">
@@ -5128,6 +5175,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="carga-stat"><span id="ca111-npedidos">2</span> pedido(s) &middot; <span id="ca111-nprodutos">22</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca111-pend">365</b> pendentes</span>
         <span id="ca111-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-cidades">PAULISTANA/PI</span>
       </summary>
       <div class="carga-body">
     <div class="pedido-block">
@@ -5469,6 +5517,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="carga-stat"><span id="ca114-npedidos">1</span> pedido(s) &middot; <span id="ca114-nprodutos">1</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca114-pend">78</b> pendentes</span>
         <span id="ca114-pill" class="pill pill-warn pill-compact">17%</span>
+        <span class="carga-cidades">OTACILIO COSTA/SC</span>
       </summary>
       <div class="carga-body">
     <div class="pedido-block">
@@ -5513,6 +5562,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="carga-stat"><span id="ca117-npedidos">1</span> pedido(s) &middot; <span id="ca117-nprodutos">4</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca117-pend">342</b> pendentes</span>
         <span id="ca117-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-cidades">OTACILIO COSTA/SC</span>
       </summary>
       <div class="carga-body">
     <div class="pedido-block">
@@ -5591,6 +5641,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="carga-stat"><span id="ca119-npedidos">1</span> pedido(s) &middot; <span id="ca119-nprodutos">5</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca119-pend">88</b> pendentes</span>
         <span id="ca119-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-cidades">PAULISTANA/PI</span>
       </summary>
       <div class="carga-body">
     <div class="pedido-block">
@@ -5701,6 +5752,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="carga-stat"><span id="ca123-npedidos">1</span> pedido(s) &middot; <span id="ca123-nprodutos">3</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca123-pend">3</b> pendentes</span>
         <span id="ca123-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-cidades">PAULISTANA/PI</span>
       </summary>
       <div class="carga-body">
     <div class="pedido-block">
@@ -5765,6 +5817,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="carga-stat"><span id="ca125-npedidos">1</span> pedido(s) &middot; <span id="ca125-nprodutos">1</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca125-pend">1</b> pendentes</span>
         <span id="ca125-pill" class="pill pill-ok pill-compact">50%</span>
+        <span class="carga-cidades">CONTAGEM/MG</span>
       </summary>
       <div class="carga-body">
     <div class="pedido-block">
@@ -5801,6 +5854,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="carga-stat"><span id="ca127-npedidos">1</span> pedido(s) &middot; <span id="ca127-nprodutos">1</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca127-pend">1</b> pendentes</span>
         <span id="ca127-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-cidades">NOVA SANTA ROSA/PR</span>
       </summary>
       <div class="carga-body">
     <div class="pedido-block">
@@ -5845,6 +5899,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="carga-stat"><span id="ca130-npedidos">1</span> pedido(s) &middot; <span id="ca130-nprodutos">5</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca130-pend">6</b> pendentes</span>
         <span id="ca130-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-cidades">PAULISTANA/PI</span>
       </summary>
       <div class="carga-body">
     <div class="pedido-block">
@@ -5937,6 +5992,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="carga-stat"><span id="ca132-npedidos">1</span> pedido(s) &middot; <span id="ca132-nprodutos">1</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca132-pend">1</b> pendentes</span>
         <span id="ca132-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-cidades">NOVA SANTA ROSA/PR</span>
       </summary>
       <div class="carga-body">
     <div class="pedido-block">
@@ -5991,6 +6047,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="carga-stat"><span id="ca136-npedidos">1</span> pedido(s) &middot; <span id="ca136-nprodutos">5</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca136-pend">6</b> pendentes</span>
         <span id="ca136-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-cidades">PAULISTANA/PI</span>
       </summary>
       <div class="carga-body">
     <div class="pedido-block">
@@ -6083,6 +6140,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="carga-stat"><span id="ca138-npedidos">1</span> pedido(s) &middot; <span id="ca138-nprodutos">1</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca138-pend">1</b> pendentes</span>
         <span id="ca138-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-cidades">NOVA SANTA ROSA/PR</span>
       </summary>
       <div class="carga-body">
     <div class="pedido-block">
@@ -6137,6 +6195,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="carga-stat"><span id="ca142-npedidos">1</span> pedido(s) &middot; <span id="ca142-nprodutos">3</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca142-pend">3</b> pendentes</span>
         <span id="ca142-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-cidades">PAULISTANA/PI</span>
       </summary>
       <div class="carga-body">
     <div class="pedido-block">
@@ -6201,6 +6260,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="carga-stat"><span id="ca144-npedidos">1</span> pedido(s) &middot; <span id="ca144-nprodutos">1</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca144-pend">1</b> pendentes</span>
         <span id="ca144-pill" class="pill pill-ok pill-compact">50%</span>
+        <span class="carga-cidades">CONTAGEM/MG</span>
       </summary>
       <div class="carga-body">
     <div class="pedido-block">
@@ -6255,6 +6315,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="carga-stat"><span id="ca148-npedidos">1</span> pedido(s) &middot; <span id="ca148-nprodutos">3</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca148-pend">3</b> pendentes</span>
         <span id="ca148-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-cidades">PAULISTANA/PI</span>
       </summary>
       <div class="carga-body">
     <div class="pedido-block">
@@ -6337,6 +6398,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="carga-stat"><span id="ca152-npedidos">1</span> pedido(s) &middot; <span id="ca152-nprodutos">2</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca152-pend">2</b> pendentes</span>
         <span id="ca152-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-cidades">PAULISTANA/PI</span>
       </summary>
       <div class="carga-body">
     <div class="pedido-block">
@@ -6405,6 +6467,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="carga-stat"><span id="ca156-npedidos">1</span> pedido(s) &middot; <span id="ca156-nprodutos">1</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca156-pend">1</b> pendentes</span>
         <span id="ca156-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-cidades">NOVA SANTA ROSA/PR</span>
       </summary>
       <div class="carga-body">
     <div class="pedido-block">
@@ -6459,6 +6522,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="carga-stat"><span id="ca160-npedidos">1</span> pedido(s) &middot; <span id="ca160-nprodutos">1</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca160-pend">1</b> pendentes</span>
         <span id="ca160-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-cidades">NOVA SANTA ROSA/PR</span>
       </summary>
       <div class="carga-body">
     <div class="pedido-block">
@@ -6787,11 +6851,51 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
     else if (ev.key === 'Escape') { ev.preventDefault(); closePwModal(false); }
   });
 
+  // ---- Estender marcacao para outras operacoes do MESMO pedido/carga ----
+  // So se aplica quando o usuario esta MARCANDO (produzido/desconsiderar),
+  // nunca ao desmarcar e nunca para Verificar. O produto so e considerado o
+  // "mesmo local" quando Carga + Pedido + Produto batem e a Operacao e
+  // diferente -- nunca estende para outro pedido/carga.
+  const extendOverlay = document.getElementById('extend-overlay');
+  const extendText = document.getElementById('extend-text');
+  const extendYes = document.getElementById('extend-yes');
+  const extendNo = document.getElementById('extend-no');
+  let extendResolve = null;
+
+  function askExtend(text) {
+    return new Promise(resolve => {
+      extendResolve = resolve;
+      if (extendText) extendText.textContent = text;
+      extendOverlay.classList.remove('hidden');
+    });
+  }
+  function closeExtendModal(result) {
+    extendOverlay.classList.add('hidden');
+    if (extendResolve) { extendResolve(result); extendResolve = null; }
+  }
+  if (extendYes) extendYes.addEventListener('click', () => closeExtendModal(true));
+  if (extendNo) extendNo.addEventListener('click', () => closeExtendModal(false));
+  document.addEventListener('keydown', ev => {
+    if (ev.key === 'Escape' && extendOverlay && !extendOverlay.classList.contains('hidden')) {
+      ev.preventDefault(); closeExtendModal(false);
+    }
+  });
+
+  function findRelatedRows(row) {
+    const cargaNum = row.dataset.cargaNum, pedidoNum = row.dataset.pedidoNum,
+          produto = row.dataset.produto, opNome = row.dataset.opNome, key = row.dataset.key;
+    return Array.from(document.querySelectorAll('.item-row')).filter(r =>
+      r.dataset.key !== key && r.dataset.cargaNum === cargaNum && r.dataset.pedidoNum === pedidoNum &&
+      r.dataset.produto === produto && r.dataset.opNome !== opNome
+    );
+  }
+
   document.addEventListener('click', async (ev) => {
     const btn = ev.target.closest('.mark-btn');
     if (!btn || !db) return;
     const key = btn.dataset.key;
     const action = btn.dataset.action;
+    const row = btn.closest('.item-row');
     const current = marks[key];
     const isUnmark = current === action;
     // Senha exigida para desmarcar OU trocar de status quando o item ja esta
@@ -6799,7 +6903,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
     // seja marcando, desmarcando, ou entrando/saindo dele.
     const needsPassword = (current === 'produzido' || current === 'desconsiderar') && action !== 'verificar';
     if (needsPassword) {
-      const row = btn.closest('.item-row');
       const unNome = row ? row.dataset.unNome : '';
       const hintText = isUnmark
         ? `Digite a senha da unidade "${unNome}" (ou a senha mestre) para desmarcar este item.`
@@ -6807,18 +6910,39 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       const ok = await askPassword([MASTER_PASSWORD, unPassword(unNome)], hintText);
       if (!ok) return;
     }
-    const ref = db.collection('marks').doc(key);
-    document.querySelectorAll(`.mark-btn[data-key="${key}"]`).forEach(b => b.disabled = true);
+
+    let extraKeys = [];
+    if (!isUnmark && (action === 'produzido' || action === 'desconsiderar') && row) {
+      const related = findRelatedRows(row);
+      if (related.length > 0) {
+        const opsList = Array.from(new Set(related.map(r => r.dataset.opNome))).join(', ');
+        const label = action === 'produzido' ? 'Produzido' : 'Desconsiderar';
+        const extend = await askExtend(
+          `Este produto (Pedido ${row.dataset.pedidoNum}, Carga ${row.dataset.cargaNum}) tambem aparece em: ${opsList}. Marcar como "${label}" nesses locais tambem?`
+        );
+        if (extend) extraKeys = related.map(r => r.dataset.key);
+      }
+    }
+
+    const allKeys = [key, ...extraKeys];
+    allKeys.forEach(k => {
+      document.querySelectorAll(`.mark-btn[data-key="${k}"]`).forEach(b => b.disabled = true);
+    });
     try {
       if (isUnmark) {
-        await ref.delete();
+        await db.collection('marks').doc(key).delete();
       } else {
-        await ref.set({status: action, ts: new Date().toISOString()});
+        await db.collection('marks').doc(key).set({status: action, ts: new Date().toISOString()});
+        for (const k of extraKeys) {
+          await db.collection('marks').doc(k).set({status: action, ts: new Date().toISOString()});
+        }
       }
     } catch (e) {
       if (statusEl) statusEl.textContent = 'falha ao salvar marcacao, tente novamente';
     } finally {
-      document.querySelectorAll(`.mark-btn[data-key="${key}"]`).forEach(b => b.disabled = false);
+      allKeys.forEach(k => {
+        document.querySelectorAll(`.mark-btn[data-key="${k}"]`).forEach(b => b.disabled = false);
+      });
     }
   });
 

@@ -166,13 +166,14 @@ details.op-block { margin-bottom: 6px; }
 details.op-block > summary {
   display: flex; align-items: center; gap: 10px; cursor: pointer; list-style: none;
   background: var(--surface); border: 1px solid var(--line); border-radius: 7px;
-  padding: 9px 12px; box-shadow: var(--shadow);
+  padding: 9px 12px; box-shadow: var(--shadow); flex-wrap: wrap;
 }
 details.op-block > summary::-webkit-details-marker { display: none; }
 .op-rank { font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: var(--muted); background: var(--surface-2); border-radius: 4px; padding: 2px 5px; }
 .op-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 16px; letter-spacing: .01em; flex: 1 1 auto; }
 .op-stat { font-size: 11.5px; color: var(--muted); white-space: nowrap; }
 .op-stat-pend { font-size: 12px; font-weight: 600; color: var(--crit); white-space: nowrap; }
+.op-cidades { flex-basis: 100%; font-size: 10.5px; color: var(--muted); white-space: normal; overflow-wrap: break-word; }
 .op-body { padding: 8px 0 4px 14px; border-left: 1px solid var(--line); margin-left: 14px; }
 
 .tw-open { color: var(--muted); font-size: 11px; width: 10px; display: inline-block; transition: transform .15s; }
@@ -262,7 +263,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="brand-kicker">CONTROLE DE F&Aacute;BRICA JJ &middot; VIS&Atilde;O GERENCIAL</span>
         <h1>Painel Gerencial de Pend&ecirc;ncias</h1>
       </div>
-      <div class="meta">Gerado em <strong>18/09/2026 09:14</strong></div>
+      <div class="meta">Gerado em <strong>18/09/2026 10:19</strong></div>
       <button class="btn topbar-toggle" id="topbar-toggle" type="button" aria-expanded="true" aria-controls="topbar-collapsible">&#9650; Recolher topo</button>
     </div>
     <div class="topbar-collapsible" id="topbar-collapsible">
@@ -335,6 +336,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="op-name">CARGA 20260909002</span>
         <span class="op-stat"><span id="cg2-noperacoes">3</span> opera&ccedil;&atilde;o(&otilde;es) &middot; <span id="cg2-nitens">16</span> produto(s)</span>
         <span class="op-stat-pend"><span id="cg2-pend">636</span> un. pendentes</span>
+        <span class="op-cidades">FRANCO DA ROCHA/SP</span>
       </summary>
       <div class="op-body">
     <details class="carga-block">
@@ -747,6 +749,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="op-name">CARGA 20260908012</span>
         <span class="op-stat"><span id="cg9-noperacoes">7</span> opera&ccedil;&atilde;o(&otilde;es) &middot; <span id="cg9-nitens">10</span> produto(s)</span>
         <span class="op-stat-pend"><span id="cg9-pend">122</span> un. pendentes</span>
+        <span class="op-cidades">ANANINDEUA/PA / BELEM/PA / PONTA PORA/MS / TAILANDIA/PA</span>
       </summary>
       <div class="op-body">
     <details class="carga-block">
@@ -1243,6 +1246,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="op-name">CARGA 20260901005</span>
         <span class="op-stat"><span id="cg30-noperacoes">4</span> opera&ccedil;&atilde;o(&otilde;es) &middot; <span id="cg30-nitens">8</span> produto(s)</span>
         <span class="op-stat-pend"><span id="cg30-pend">112</span> un. pendentes</span>
+        <span class="op-cidades">BOM JESUS DA SERRA/BA / TUCANO/BA</span>
       </summary>
       <div class="op-body">
     <details class="carga-block">
@@ -1724,6 +1728,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="op-name">CARGA 20260901011</span>
         <span class="op-stat"><span id="cg42-noperacoes">4</span> opera&ccedil;&atilde;o(&otilde;es) &middot; <span id="cg42-nitens">11</span> produto(s)</span>
         <span class="op-stat-pend"><span id="cg42-pend">24</span> un. pendentes</span>
+        <span class="op-cidades">SAO RAIMUNDO NONATO/PI / TERESINA/PI</span>
       </summary>
       <div class="op-body">
     <details class="carga-block">
@@ -2001,6 +2006,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="op-name">CARGA 20260901007</span>
         <span class="op-stat"><span id="cg52-noperacoes">4</span> opera&ccedil;&atilde;o(&otilde;es) &middot; <span id="cg52-nitens">2</span> produto(s)</span>
         <span class="op-stat-pend"><span id="cg52-pend">6</span> un. pendentes</span>
+        <span class="op-cidades">CIANORTE/PR</span>
       </summary>
       <div class="op-body">
     <details class="carga-block">
@@ -2166,6 +2172,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="op-name">CARGA 20260911013</span>
         <span class="op-stat"><span id="cg62-noperacoes">7</span> opera&ccedil;&atilde;o(&otilde;es) &middot; <span id="cg62-nitens">41</span> produto(s)</span>
         <span class="op-stat-pend"><span id="cg62-pend">4400</span> un. pendentes</span>
+        <span class="op-cidades">NOVA SANTA ROSA/PR / RIO BONITO DO IGUACU/PR</span>
       </summary>
       <div class="op-body">
     <details class="carga-block">
@@ -3856,6 +3863,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="op-name">CARGA 20260908009</span>
         <span class="op-stat"><span id="cg77-noperacoes">8</span> opera&ccedil;&atilde;o(&otilde;es) &middot; <span id="cg77-nitens">49</span> produto(s)</span>
         <span class="op-stat-pend"><span id="cg77-pend">2751</span> un. pendentes</span>
+        <span class="op-cidades">PAULISTANA/PI</span>
       </summary>
       <div class="op-body">
     <details class="carga-block">
@@ -5657,6 +5665,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="op-name">CARGA 20260708014</span>
         <span class="op-stat"><span id="cg97-noperacoes">3</span> opera&ccedil;&atilde;o(&otilde;es) &middot; <span id="cg97-nitens">7</span> produto(s)</span>
         <span class="op-stat-pend"><span id="cg97-pend">988</span> un. pendentes</span>
+        <span class="op-cidades">OTACILIO COSTA/SC</span>
       </summary>
       <div class="op-body">
     <details class="carga-block">
@@ -5915,6 +5924,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="op-name">CARGA 20260916002</span>
         <span class="op-stat"><span id="cg104-noperacoes">2</span> opera&ccedil;&atilde;o(&otilde;es) &middot; <span id="cg104-nitens">1</span> produto(s)</span>
         <span class="op-stat-pend"><span id="cg104-pend">2</span> un. pendentes</span>
+        <span class="op-cidades">CONTAGEM/MG</span>
       </summary>
       <div class="op-body">
     <details class="carga-block">
