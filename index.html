@@ -245,12 +245,6 @@ table.itens-table tr:last-child td { border-bottom: none; }
 }
 .mark-btn:hover { border-color: var(--accent); color: var(--accent); }
 .mark-btn:disabled { opacity: .5; cursor: default; }
-.peer-badge {
-  display: inline-block; font-size: 9px; font-family: 'IBM Plex Mono', monospace;
-  color: var(--muted); border: 1px dashed var(--line); border-radius: 4px;
-  padding: 0 4px; margin-right: 3px; vertical-align: middle; cursor: help;
-}
-.peer-badge:empty { display: none; margin-right: 0; }
 .mark-btn.active[data-action="produzido"] { background: var(--ok-bg); border-color: var(--ok); color: var(--ok); }
 .mark-btn.active[data-action="verificar"] { background: var(--warn-bg); border-color: var(--warn); color: var(--warn); }
 .mark-btn.active[data-action="desconsiderar"] { background: var(--crit-bg); border-color: var(--crit); color: var(--crit); }
@@ -304,7 +298,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         </div>
       </div>
       <div class="marks-bar">
-        <span class="marks-legend"><b class="lg-produzido">&#10003; Produzido</b> = conta como feito &middot; <b class="lg-verificar">! Verificar</b> = precisa de aten&ccedil;&atilde;o &middot; <b class="lg-desconsiderar">&#10005; Desconsiderar</b> = ignora este item na an&aacute;lise &middot; badge tracejado <b>G</b> = marca&ccedil;&atilde;o feita no painel gerencial (s&oacute; leitura aqui)</span>
+        <span class="marks-legend"><b class="lg-produzido">&#10003; Produzido</b> = conta como feito &middot; <b class="lg-verificar">! Verificar</b> = precisa de aten&ccedil;&atilde;o &middot; <b class="lg-desconsiderar">&#10005; Desconsiderar</b> = ignora este item na an&aacute;lise &middot; marca&ccedil;&otilde;es s&atilde;o compartilhadas com o painel gerencial (uma so base para os dois)</span>
         <span id="marks-count"></span>
         <span id="marks-status"></span>
       </div>
@@ -392,7 +386,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">4</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="iae613a4da1597e96ac4b"></span>
         <button type="button" class="mark-btn" data-key="iae613a4da1597e96ac4b" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="iae613a4da1597e96ac4b" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="iae613a4da1597e96ac4b" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -407,7 +400,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">24</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="ifaa8d6994692b90eec3d"></span>
         <button type="button" class="mark-btn" data-key="ifaa8d6994692b90eec3d" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="ifaa8d6994692b90eec3d" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="ifaa8d6994692b90eec3d" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -422,7 +414,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">44</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="idf32c196c495896d2158"></span>
         <button type="button" class="mark-btn" data-key="idf32c196c495896d2158" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="idf32c196c495896d2158" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="idf32c196c495896d2158" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -437,7 +428,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">16</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="ie1698753d83e985bbba7"></span>
         <button type="button" class="mark-btn" data-key="ie1698753d83e985bbba7" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="ie1698753d83e985bbba7" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="ie1698753d83e985bbba7" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -475,7 +465,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">1</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="id6f3e588b971975790fc"></span>
         <button type="button" class="mark-btn" data-key="id6f3e588b971975790fc" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="id6f3e588b971975790fc" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="id6f3e588b971975790fc" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -490,7 +479,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">2</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="if1a71bb6ea9520542f8c"></span>
         <button type="button" class="mark-btn" data-key="if1a71bb6ea9520542f8c" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="if1a71bb6ea9520542f8c" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="if1a71bb6ea9520542f8c" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -505,7 +493,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">1</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="i3c92ad22aca7ca5070e3"></span>
         <button type="button" class="mark-btn" data-key="i3c92ad22aca7ca5070e3" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i3c92ad22aca7ca5070e3" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i3c92ad22aca7ca5070e3" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -520,7 +507,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">2</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="i7e77802ea009145504b1"></span>
         <button type="button" class="mark-btn" data-key="i7e77802ea009145504b1" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i7e77802ea009145504b1" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i7e77802ea009145504b1" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -535,7 +521,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">12</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="i7032997ccac70ae99781"></span>
         <button type="button" class="mark-btn" data-key="i7032997ccac70ae99781" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i7032997ccac70ae99781" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i7032997ccac70ae99781" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -550,7 +535,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">10</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="i8b455be43da62c2dbbdb"></span>
         <button type="button" class="mark-btn" data-key="i8b455be43da62c2dbbdb" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i8b455be43da62c2dbbdb" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i8b455be43da62c2dbbdb" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -576,7 +560,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">2</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="i2f4b88adc73935c0fc06"></span>
         <button type="button" class="mark-btn" data-key="i2f4b88adc73935c0fc06" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i2f4b88adc73935c0fc06" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i2f4b88adc73935c0fc06" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -591,7 +574,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">4</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="i8d3b092789da4d84131a"></span>
         <button type="button" class="mark-btn" data-key="i8d3b092789da4d84131a" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i8d3b092789da4d84131a" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i8d3b092789da4d84131a" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -606,7 +588,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">4</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="i2c2f11d955c0a630aca7"></span>
         <button type="button" class="mark-btn" data-key="i2c2f11d955c0a630aca7" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i2c2f11d955c0a630aca7" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i2c2f11d955c0a630aca7" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -644,7 +625,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">33</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="idfd498ef451ee8c1ebbf"></span>
         <button type="button" class="mark-btn" data-key="idfd498ef451ee8c1ebbf" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="idfd498ef451ee8c1ebbf" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="idfd498ef451ee8c1ebbf" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -659,7 +639,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">3</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="i0371f1fed6d562b94312"></span>
         <button type="button" class="mark-btn" data-key="i0371f1fed6d562b94312" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i0371f1fed6d562b94312" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i0371f1fed6d562b94312" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -697,7 +676,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">2</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="idfa529828e29a20fb1ef"></span>
         <button type="button" class="mark-btn" data-key="idfa529828e29a20fb1ef" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="idfa529828e29a20fb1ef" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="idfa529828e29a20fb1ef" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -743,7 +721,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">1</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="i668f60c6a2f345aef317"></span>
         <button type="button" class="mark-btn" data-key="i668f60c6a2f345aef317" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i668f60c6a2f345aef317" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i668f60c6a2f345aef317" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -758,7 +735,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">1</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="id81dd97953f88a3a7134"></span>
         <button type="button" class="mark-btn" data-key="id81dd97953f88a3a7134" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="id81dd97953f88a3a7134" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="id81dd97953f88a3a7134" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -773,7 +749,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">1</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="if41e053345de5144e979"></span>
         <button type="button" class="mark-btn" data-key="if41e053345de5144e979" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="if41e053345de5144e979" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="if41e053345de5144e979" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -829,7 +804,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">4</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="i8688175eb69867401357"></span>
         <button type="button" class="mark-btn" data-key="i8688175eb69867401357" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i8688175eb69867401357" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i8688175eb69867401357" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -844,7 +818,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">24</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="ic753333465346ca017e5"></span>
         <button type="button" class="mark-btn" data-key="ic753333465346ca017e5" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="ic753333465346ca017e5" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="ic753333465346ca017e5" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -859,7 +832,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">44</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="i37863843e9207ed3b1a3"></span>
         <button type="button" class="mark-btn" data-key="i37863843e9207ed3b1a3" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i37863843e9207ed3b1a3" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i37863843e9207ed3b1a3" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -874,7 +846,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">16</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="i26afc1bdd6bccbf4caee"></span>
         <button type="button" class="mark-btn" data-key="i26afc1bdd6bccbf4caee" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i26afc1bdd6bccbf4caee" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i26afc1bdd6bccbf4caee" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -889,7 +860,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">8</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="i1dcd50526cff72a008a7"></span>
         <button type="button" class="mark-btn" data-key="i1dcd50526cff72a008a7" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i1dcd50526cff72a008a7" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i1dcd50526cff72a008a7" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -904,7 +874,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">4</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="i0e5dc29c46d23e497673"></span>
         <button type="button" class="mark-btn" data-key="i0e5dc29c46d23e497673" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i0e5dc29c46d23e497673" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i0e5dc29c46d23e497673" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -942,7 +911,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">33</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="i5a4e39ca8e7b92432fe8"></span>
         <button type="button" class="mark-btn" data-key="i5a4e39ca8e7b92432fe8" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i5a4e39ca8e7b92432fe8" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i5a4e39ca8e7b92432fe8" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -957,7 +925,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">3</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="i59143d831d4baab0f769"></span>
         <button type="button" class="mark-btn" data-key="i59143d831d4baab0f769" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i59143d831d4baab0f769" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i59143d831d4baab0f769" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -995,7 +962,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">2</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="i55942b5a925e25e3c19d"></span>
         <button type="button" class="mark-btn" data-key="i55942b5a925e25e3c19d" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i55942b5a925e25e3c19d" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i55942b5a925e25e3c19d" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1010,7 +976,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">2</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="i176db0d292de41377782"></span>
         <button type="button" class="mark-btn" data-key="i176db0d292de41377782" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i176db0d292de41377782" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i176db0d292de41377782" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1025,7 +990,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">12</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="i4c286403a1550e26e5f9"></span>
         <button type="button" class="mark-btn" data-key="i4c286403a1550e26e5f9" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i4c286403a1550e26e5f9" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i4c286403a1550e26e5f9" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1040,7 +1004,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">10</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="i469e01b859b713f56e40"></span>
         <button type="button" class="mark-btn" data-key="i469e01b859b713f56e40" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i469e01b859b713f56e40" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i469e01b859b713f56e40" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1066,7 +1029,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">4</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="i958c9dbdcbda6f1c89e4"></span>
         <button type="button" class="mark-btn" data-key="i958c9dbdcbda6f1c89e4" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i958c9dbdcbda6f1c89e4" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i958c9dbdcbda6f1c89e4" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1122,7 +1084,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">4</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="ie867bfa14697a4028f35"></span>
         <button type="button" class="mark-btn" data-key="ie867bfa14697a4028f35" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="ie867bfa14697a4028f35" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="ie867bfa14697a4028f35" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1137,7 +1098,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">24</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="i4a6ad2eb802336ec6838"></span>
         <button type="button" class="mark-btn" data-key="i4a6ad2eb802336ec6838" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i4a6ad2eb802336ec6838" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i4a6ad2eb802336ec6838" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1152,7 +1112,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">44</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="ib52e4b62b1fca85905cc"></span>
         <button type="button" class="mark-btn" data-key="ib52e4b62b1fca85905cc" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="ib52e4b62b1fca85905cc" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="ib52e4b62b1fca85905cc" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1167,7 +1126,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">16</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="ie7bfd4a0be8d8cc4715f"></span>
         <button type="button" class="mark-btn" data-key="ie7bfd4a0be8d8cc4715f" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="ie7bfd4a0be8d8cc4715f" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="ie7bfd4a0be8d8cc4715f" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1205,7 +1163,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">33</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="i3ee72c4bae0fb3eeb7d7"></span>
         <button type="button" class="mark-btn" data-key="i3ee72c4bae0fb3eeb7d7" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i3ee72c4bae0fb3eeb7d7" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i3ee72c4bae0fb3eeb7d7" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1220,7 +1177,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">3</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="ia9d4c6c3d6d5aa562e64"></span>
         <button type="button" class="mark-btn" data-key="ia9d4c6c3d6d5aa562e64" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="ia9d4c6c3d6d5aa562e64" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="ia9d4c6c3d6d5aa562e64" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1258,7 +1214,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">2</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="i81054fcdd837ccd6b006"></span>
         <button type="button" class="mark-btn" data-key="i81054fcdd837ccd6b006" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i81054fcdd837ccd6b006" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i81054fcdd837ccd6b006" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1273,7 +1228,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">2</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="icbe94721488096f17954"></span>
         <button type="button" class="mark-btn" data-key="icbe94721488096f17954" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="icbe94721488096f17954" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="icbe94721488096f17954" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1288,7 +1242,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">12</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="i14b7000f21e4832cce5d"></span>
         <button type="button" class="mark-btn" data-key="i14b7000f21e4832cce5d" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i14b7000f21e4832cce5d" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i14b7000f21e4832cce5d" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1303,7 +1256,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">10</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="ief8accdf943876178ed9"></span>
         <button type="button" class="mark-btn" data-key="ief8accdf943876178ed9" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="ief8accdf943876178ed9" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="ief8accdf943876178ed9" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1329,7 +1281,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">4</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="i90a0c0a538cb941e3c6b"></span>
         <button type="button" class="mark-btn" data-key="i90a0c0a538cb941e3c6b" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i90a0c0a538cb941e3c6b" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i90a0c0a538cb941e3c6b" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1344,7 +1295,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">4</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="ib32dff6c0c4bfac138d0"></span>
         <button type="button" class="mark-btn" data-key="ib32dff6c0c4bfac138d0" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="ib32dff6c0c4bfac138d0" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="ib32dff6c0c4bfac138d0" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1382,7 +1332,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">2</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="i00e7335b50e261659a88"></span>
         <button type="button" class="mark-btn" data-key="i00e7335b50e261659a88" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i00e7335b50e261659a88" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i00e7335b50e261659a88" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1438,7 +1387,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">1</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="i06a5d442164b45448cfa"></span>
         <button type="button" class="mark-btn" data-key="i06a5d442164b45448cfa" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i06a5d442164b45448cfa" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i06a5d442164b45448cfa" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1453,7 +1401,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">1</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="icf142256159e8fa19a2f"></span>
         <button type="button" class="mark-btn" data-key="icf142256159e8fa19a2f" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="icf142256159e8fa19a2f" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="icf142256159e8fa19a2f" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1509,7 +1456,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">1</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="iec8c027ffe115d4d0731"></span>
         <button type="button" class="mark-btn" data-key="iec8c027ffe115d4d0731" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="iec8c027ffe115d4d0731" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="iec8c027ffe115d4d0731" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1565,7 +1511,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">1</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="i58f8ca66c9e035d37a11"></span>
         <button type="button" class="mark-btn" data-key="i58f8ca66c9e035d37a11" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i58f8ca66c9e035d37a11" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i58f8ca66c9e035d37a11" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1632,7 +1577,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">78</span></td>
       <td class="c-pill"><span class="pill pill-warn cell-pill">17%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="i8774427b39c2bce59aa9"></span>
         <button type="button" class="mark-btn" data-key="i8774427b39c2bce59aa9" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i8774427b39c2bce59aa9" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i8774427b39c2bce59aa9" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1670,7 +1614,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">4</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="i66fd3bc964f5572f175b"></span>
         <button type="button" class="mark-btn" data-key="i66fd3bc964f5572f175b" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i66fd3bc964f5572f175b" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i66fd3bc964f5572f175b" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1685,7 +1628,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">3</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="ic6e010a7795eb2587119"></span>
         <button type="button" class="mark-btn" data-key="ic6e010a7795eb2587119" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="ic6e010a7795eb2587119" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="ic6e010a7795eb2587119" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1731,7 +1673,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">94</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="i0dc156638736b53015ed"></span>
         <button type="button" class="mark-btn" data-key="i0dc156638736b53015ed" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i0dc156638736b53015ed" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i0dc156638736b53015ed" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1746,7 +1687,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">56</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="ib6cce624a09cda9f87d3"></span>
         <button type="button" class="mark-btn" data-key="ib6cce624a09cda9f87d3" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="ib6cce624a09cda9f87d3" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="ib6cce624a09cda9f87d3" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1761,7 +1701,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">56</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="i95b13a56db221907f048"></span>
         <button type="button" class="mark-btn" data-key="i95b13a56db221907f048" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i95b13a56db221907f048" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i95b13a56db221907f048" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1776,7 +1715,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">136</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="ied5bdde42cf8b0b52374"></span>
         <button type="button" class="mark-btn" data-key="ied5bdde42cf8b0b52374" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="ied5bdde42cf8b0b52374" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="ied5bdde42cf8b0b52374" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1832,7 +1770,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">2</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="i5d7b62e6472d1eea8590"></span>
         <button type="button" class="mark-btn" data-key="i5d7b62e6472d1eea8590" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i5d7b62e6472d1eea8590" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i5d7b62e6472d1eea8590" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1847,7 +1784,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">10</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="iff7b74cf39be0c40946e"></span>
         <button type="button" class="mark-btn" data-key="iff7b74cf39be0c40946e" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="iff7b74cf39be0c40946e" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="iff7b74cf39be0c40946e" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1862,7 +1798,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">2</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="i3a1205349e4b257eaccc"></span>
         <button type="button" class="mark-btn" data-key="i3a1205349e4b257eaccc" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i3a1205349e4b257eaccc" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i3a1205349e4b257eaccc" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1877,7 +1812,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">4</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="i08539a0ddde38e7fcbac"></span>
         <button type="button" class="mark-btn" data-key="i08539a0ddde38e7fcbac" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i08539a0ddde38e7fcbac" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i08539a0ddde38e7fcbac" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1892,7 +1826,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">8</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="i74d0d7cd0467ebb4e003"></span>
         <button type="button" class="mark-btn" data-key="i74d0d7cd0467ebb4e003" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i74d0d7cd0467ebb4e003" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i74d0d7cd0467ebb4e003" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1907,7 +1840,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">8</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="i822536f7c8eaeebafd53"></span>
         <button type="button" class="mark-btn" data-key="i822536f7c8eaeebafd53" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i822536f7c8eaeebafd53" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i822536f7c8eaeebafd53" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1922,7 +1854,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">42</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="i7e1c34fb2c47ba4080b9"></span>
         <button type="button" class="mark-btn" data-key="i7e1c34fb2c47ba4080b9" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i7e1c34fb2c47ba4080b9" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i7e1c34fb2c47ba4080b9" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1937,7 +1868,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">8</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="i155c9475d9a13b2fc058"></span>
         <button type="button" class="mark-btn" data-key="i155c9475d9a13b2fc058" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i155c9475d9a13b2fc058" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i155c9475d9a13b2fc058" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1952,7 +1882,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">8</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="ic7e0c1bdcbb4fd7aa972"></span>
         <button type="button" class="mark-btn" data-key="ic7e0c1bdcbb4fd7aa972" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="ic7e0c1bdcbb4fd7aa972" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="ic7e0c1bdcbb4fd7aa972" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1967,7 +1896,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">2</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="ibfb48d5d291ad28518f7"></span>
         <button type="button" class="mark-btn" data-key="ibfb48d5d291ad28518f7" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="ibfb48d5d291ad28518f7" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="ibfb48d5d291ad28518f7" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1982,7 +1910,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">38</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="i13579aa0270d3bc95bde"></span>
         <button type="button" class="mark-btn" data-key="i13579aa0270d3bc95bde" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i13579aa0270d3bc95bde" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i13579aa0270d3bc95bde" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1997,7 +1924,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">6</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="idb105d24d831d3b60e39"></span>
         <button type="button" class="mark-btn" data-key="idb105d24d831d3b60e39" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="idb105d24d831d3b60e39" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="idb105d24d831d3b60e39" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -2012,7 +1938,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">3</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="iaca2b3ff5ef2810cf2da"></span>
         <button type="button" class="mark-btn" data-key="iaca2b3ff5ef2810cf2da" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="iaca2b3ff5ef2810cf2da" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="iaca2b3ff5ef2810cf2da" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -2050,7 +1975,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">78</span></td>
       <td class="c-pill"><span class="pill pill-warn cell-pill">17%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="i6f422ef0657c55614f83"></span>
         <button type="button" class="mark-btn" data-key="i6f422ef0657c55614f83" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i6f422ef0657c55614f83" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i6f422ef0657c55614f83" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -2096,7 +2020,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">94</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="i35e49f283f5987ddf1a5"></span>
         <button type="button" class="mark-btn" data-key="i35e49f283f5987ddf1a5" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i35e49f283f5987ddf1a5" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i35e49f283f5987ddf1a5" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -2111,7 +2034,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">56</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="id41179e007748962312e"></span>
         <button type="button" class="mark-btn" data-key="id41179e007748962312e" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="id41179e007748962312e" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="id41179e007748962312e" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -2126,7 +2048,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">56</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="ic9b2bee4b98bd96e527b"></span>
         <button type="button" class="mark-btn" data-key="ic9b2bee4b98bd96e527b" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="ic9b2bee4b98bd96e527b" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="ic9b2bee4b98bd96e527b" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -2182,7 +2103,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">78</span></td>
       <td class="c-pill"><span class="pill pill-warn cell-pill">17%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="ica6482ac51f8bfd35eb3"></span>
         <button type="button" class="mark-btn" data-key="ica6482ac51f8bfd35eb3" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="ica6482ac51f8bfd35eb3" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="ica6482ac51f8bfd35eb3" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -2220,7 +2140,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">4</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="ibaf48020e9ecb6a7bde1"></span>
         <button type="button" class="mark-btn" data-key="ibaf48020e9ecb6a7bde1" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="ibaf48020e9ecb6a7bde1" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="ibaf48020e9ecb6a7bde1" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -2235,7 +2154,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">3</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="ib8190fdbf8cbf866dbb7"></span>
         <button type="button" class="mark-btn" data-key="ib8190fdbf8cbf866dbb7" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="ib8190fdbf8cbf866dbb7" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="ib8190fdbf8cbf866dbb7" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -2281,7 +2199,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">94</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="if7c354a901a8384af088"></span>
         <button type="button" class="mark-btn" data-key="if7c354a901a8384af088" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="if7c354a901a8384af088" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="if7c354a901a8384af088" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -2296,7 +2213,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">56</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="i5c2e96459ee06f482a14"></span>
         <button type="button" class="mark-btn" data-key="i5c2e96459ee06f482a14" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i5c2e96459ee06f482a14" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i5c2e96459ee06f482a14" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -2311,7 +2227,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">56</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="ie693759ffc2c89cdf51a"></span>
         <button type="button" class="mark-btn" data-key="ie693759ffc2c89cdf51a" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="ie693759ffc2c89cdf51a" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="ie693759ffc2c89cdf51a" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -2367,7 +2282,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">1</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
-        <span class="peer-badge" data-key="i95261acd331705603a37"></span>
         <button type="button" class="mark-btn" data-key="i95261acd331705603a37" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i95261acd331705603a37" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i95261acd331705603a37" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -2472,10 +2386,13 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
 (function() {
   let db = null;
   let marks = {};
-  let peerMarks = {};
-  const PEER_COLLECTION = 'marks_gerencial';
-  const PEER_PREFIX = 'G';
-  const PEER_LABEL = 'gerencial';
+  // Colecao UNICA e COMPARTILHADA com o painel gerencial (desde 2026-09-18).
+  // Marcar aqui ou la e a mesma coisa -- mesmo status, mesmos KPIs, nos dois
+  // paineis, em tempo real. As colecoes antigas 'marks' (supervisores) e
+  // 'marks_gerencial' (gerencial) foram migradas para ca uma unica vez (ver
+  // migration_test.py / o script de migracao rodado direto no navegador) e
+  // ficam paradas, so como historico -- nao usar mais.
+  const UNIFIED_COLLECTION = 'marks_unificadas';
   const statusEl = document.getElementById('marks-status');
   const countEl = document.getElementById('marks-count');
   const clearBtn = document.getElementById('clear-marks');
@@ -2511,21 +2428,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       row.classList.toggle('row-verificar', mark === 'verificar');
       row.classList.toggle('row-desconsiderar', mark === 'desconsiderar');
       row.querySelectorAll('.mark-btn').forEach(b => b.classList.toggle('active', b.dataset.action === mark));
-
-      // Badge somente-leitura mostrando a marcacao feita no OUTRO painel
-      // (nunca escreve, nunca afeta os agregados/KPIs deste painel).
-      const peerBadge = row.querySelector('.peer-badge');
-      if (peerBadge) {
-        const peer = peerMarks[key];
-        if (peer) {
-          const sym = peer === 'produzido' ? '✓' : peer === 'verificar' ? '!' : peer === 'desconsiderar' ? '✕' : '';
-          peerBadge.textContent = PEER_PREFIX + sym;
-          peerBadge.title = 'Marcado no painel ' + PEER_LABEL + ': ' + peer;
-        } else {
-          peerBadge.textContent = '';
-          peerBadge.title = '';
-        }
-      }
 
       const feito = mark === 'produzido' ? necessario : feitoOrig;
       const p = Math.max(necessario - feito, 0);
@@ -2627,7 +2529,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       document.querySelectorAll('.mark-btn, #clear-marks').forEach(b => b.disabled = true);
       return;
     }
-    db.collection('marks').onSnapshot(snap => {
+    db.collection(UNIFIED_COLLECTION).onSnapshot(snap => {
       const next = {};
       snap.docs.forEach(docSnap => {
         const data = docSnap.data();
@@ -2638,17 +2540,6 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
     }, err => {
       if (statusEl) statusEl.textContent = 'marcacoes indisponiveis no momento';
     });
-    // Leitura (nunca escrita) da colecao do OUTRO painel, so para exibir o
-    // badge informativo -- nao afeta nenhum agregado/KPI/senha deste painel.
-    db.collection(PEER_COLLECTION).onSnapshot(snap => {
-      const next = {};
-      snap.docs.forEach(docSnap => {
-        const data = docSnap.data();
-        if (data && data.status) next[docSnap.id] = data.status;
-      });
-      peerMarks = next;
-      recompute();
-    }, err => { /* leitura opcional -- se falhar, so o badge fica sempre vazio */ });
   }
 
   const MASTER_PASSWORD = 'adminmestre';
@@ -2785,11 +2676,11 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
     });
     try {
       if (isUnmark) {
-        await db.collection('marks').doc(key).delete();
+        await db.collection(UNIFIED_COLLECTION).doc(key).delete();
       } else {
-        await db.collection('marks').doc(key).set({status: action, ts: new Date().toISOString()});
+        await db.collection(UNIFIED_COLLECTION).doc(key).set({status: action, ts: new Date().toISOString()});
         for (const k of extraKeys) {
-          await db.collection('marks').doc(k).set({status: action, ts: new Date().toISOString()});
+          await db.collection(UNIFIED_COLLECTION).doc(k).set({status: action, ts: new Date().toISOString()});
         }
       }
     } catch (e) {
@@ -2809,12 +2700,12 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         'Digite a senha mestre para limpar TODAS as marcacoes (de todas as unidades).'
       );
       if (!ok) return;
-      if (!confirm('Limpar todas as marcacoes manuais deste painel?')) return;
+      if (!confirm('Limpar todas as marcacoes manuais? Isso afeta os dois paineis (operacional e gerencial), pois compartilham a mesma base.')) return;
       clearBtn.disabled = true;
       try {
-        const snap = await db.collection('marks').get();
+        const snap = await db.collection(UNIFIED_COLLECTION).get();
         for (const docSnap of snap.docs) {
-          await db.collection('marks').doc(docSnap.id).delete();
+          await db.collection(UNIFIED_COLLECTION).doc(docSnap.id).delete();
         }
       } catch (e) {
         if (statusEl) statusEl.textContent = 'falha ao limpar marcacoes';
