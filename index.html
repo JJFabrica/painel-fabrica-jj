@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-<title>Painel de Pend&ecirc;ncias</title>
+<title>Painel de Pendências</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap">
 <style>
 :root {
@@ -245,6 +245,12 @@ table.itens-table tr:last-child td { border-bottom: none; }
 }
 .mark-btn:hover { border-color: var(--accent); color: var(--accent); }
 .mark-btn:disabled { opacity: .5; cursor: default; }
+.peer-badge {
+  display: inline-block; font-size: 9px; font-family: 'IBM Plex Mono', monospace;
+  color: var(--muted); border: 1px dashed var(--line); border-radius: 4px;
+  padding: 0 4px; margin-right: 3px; vertical-align: middle; cursor: help;
+}
+.peer-badge:empty { display: none; margin-right: 0; }
 .mark-btn.active[data-action="produzido"] { background: var(--ok-bg); border-color: var(--ok); color: var(--ok); }
 .mark-btn.active[data-action="verificar"] { background: var(--warn-bg); border-color: var(--warn); color: var(--warn); }
 .mark-btn.active[data-action="desconsiderar"] { background: var(--crit-bg); border-color: var(--crit); color: var(--crit); }
@@ -275,17 +281,17 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="brand-kicker">CONTROLE DE F&Aacute;BRICA JJ</span>
         <h1>Painel de Pend&ecirc;ncias de Produ&ccedil;&atilde;o</h1>
       </div>
-      <div class="meta">Gerado em <strong>18/09/2026 10:51</strong></div>
+      <div class="meta">Gerado em <strong>18/09/2026 13:38</strong></div>
       <button class="btn topbar-toggle" id="topbar-toggle" type="button" aria-expanded="true" aria-controls="topbar-collapsible">&#9650; Recolher topo</button>
     </div>
     <div class="topbar-collapsible" id="topbar-collapsible">
       
 <div class="kpi-strip">
   <div class="kpi"><span class="kpi-value" id="kpi-dias">2</span><span class="kpi-label">dias</span></div>
-  <div class="kpi"><span class="kpi-value" id="kpi-ops">8</span><span class="kpi-label">opera&ccedil;&otilde;es</span></div>
-  <div class="kpi"><span class="kpi-value" id="kpi-cargas">9</span><span class="kpi-label">cargas c/ pend&ecirc;ncia</span></div>
-  <div class="kpi kpi-crit"><span class="kpi-value" id="kpi-itens">88</span><span class="kpi-label">produtos pendentes</span></div>
-  <div class="kpi kpi-crit"><span class="kpi-value" id="kpi-qtd">1650</span><span class="kpi-label">un. pendentes no total</span></div>
+  <div class="kpi"><span class="kpi-value" id="kpi-ops">6</span><span class="kpi-label">opera&ccedil;&otilde;es</span></div>
+  <div class="kpi"><span class="kpi-value" id="kpi-cargas">8</span><span class="kpi-label">cargas c/ pend&ecirc;ncia</span></div>
+  <div class="kpi kpi-crit"><span class="kpi-value" id="kpi-itens">80</span><span class="kpi-label">produtos pendentes</span></div>
+  <div class="kpi kpi-crit"><span class="kpi-value" id="kpi-qtd">1641</span><span class="kpi-label">un. pendentes no total</span></div>
 </div>
 
       <div class="search-row">
@@ -298,7 +304,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         </div>
       </div>
       <div class="marks-bar">
-        <span class="marks-legend"><b class="lg-produzido">&#10003; Produzido</b> = conta como feito &middot; <b class="lg-verificar">! Verificar</b> = precisa de aten&ccedil;&atilde;o &middot; <b class="lg-desconsiderar">&#10005; Desconsiderar</b> = ignora este item na an&aacute;lise</span>
+        <span class="marks-legend"><b class="lg-produzido">&#10003; Produzido</b> = conta como feito &middot; <b class="lg-verificar">! Verificar</b> = precisa de aten&ccedil;&atilde;o &middot; <b class="lg-desconsiderar">&#10005; Desconsiderar</b> = ignora este item na an&aacute;lise &middot; badge tracejado <b>G</b> = marca&ccedil;&atilde;o feita no painel gerencial (s&oacute; leitura aqui)</span>
         <span id="marks-count"></span>
         <span id="marks-status"></span>
       </div>
@@ -335,9 +341,9 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <div class="day-head">
         <div class="day-title"><span class="day-dow">SEX</span><span class="day-date">18/09/2026</span><span class="day-delta">HOJE</span></div>
         <div class="day-stats">
-          <span><span id="dy1-ncargas">7</span> carga(s)</span><span class="dot">&middot;</span>
-          <span><span id="dy1-nitens">57</span> produto(s) pendente(s)</span><span class="dot">&middot;</span>
-          <span class="day-stats-pend"><span id="dy1-pend">506</span> un. pendentes no dia</span>
+          <span><span id="dy1-ncargas">6</span> carga(s)</span><span class="dot">&middot;</span>
+          <span><span id="dy1-nitens">49</span> produto(s) pendente(s)</span><span class="dot">&middot;</span>
+          <span class="day-stats-pend"><span id="dy1-pend">497</span> un. pendentes no dia</span>
         </div>
       </div>
       <div class="day-body">
@@ -386,6 +392,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">4</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="iae613a4da1597e96ac4b"></span>
         <button type="button" class="mark-btn" data-key="iae613a4da1597e96ac4b" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="iae613a4da1597e96ac4b" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="iae613a4da1597e96ac4b" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -400,6 +407,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">24</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="ifaa8d6994692b90eec3d"></span>
         <button type="button" class="mark-btn" data-key="ifaa8d6994692b90eec3d" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="ifaa8d6994692b90eec3d" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="ifaa8d6994692b90eec3d" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -414,6 +422,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">44</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="idf32c196c495896d2158"></span>
         <button type="button" class="mark-btn" data-key="idf32c196c495896d2158" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="idf32c196c495896d2158" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="idf32c196c495896d2158" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -428,6 +437,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">16</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="ie1698753d83e985bbba7"></span>
         <button type="button" class="mark-btn" data-key="ie1698753d83e985bbba7" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="ie1698753d83e985bbba7" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="ie1698753d83e985bbba7" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -465,6 +475,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">1</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="id6f3e588b971975790fc"></span>
         <button type="button" class="mark-btn" data-key="id6f3e588b971975790fc" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="id6f3e588b971975790fc" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="id6f3e588b971975790fc" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -479,6 +490,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">2</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="if1a71bb6ea9520542f8c"></span>
         <button type="button" class="mark-btn" data-key="if1a71bb6ea9520542f8c" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="if1a71bb6ea9520542f8c" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="if1a71bb6ea9520542f8c" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -493,6 +505,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">1</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="i3c92ad22aca7ca5070e3"></span>
         <button type="button" class="mark-btn" data-key="i3c92ad22aca7ca5070e3" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i3c92ad22aca7ca5070e3" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i3c92ad22aca7ca5070e3" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -507,6 +520,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">2</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="i7e77802ea009145504b1"></span>
         <button type="button" class="mark-btn" data-key="i7e77802ea009145504b1" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i7e77802ea009145504b1" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i7e77802ea009145504b1" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -521,6 +535,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">12</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="i7032997ccac70ae99781"></span>
         <button type="button" class="mark-btn" data-key="i7032997ccac70ae99781" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i7032997ccac70ae99781" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i7032997ccac70ae99781" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -535,6 +550,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">10</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="i8b455be43da62c2dbbdb"></span>
         <button type="button" class="mark-btn" data-key="i8b455be43da62c2dbbdb" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i8b455be43da62c2dbbdb" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i8b455be43da62c2dbbdb" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -560,6 +576,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">2</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="i2f4b88adc73935c0fc06"></span>
         <button type="button" class="mark-btn" data-key="i2f4b88adc73935c0fc06" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i2f4b88adc73935c0fc06" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i2f4b88adc73935c0fc06" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -574,6 +591,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">4</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="i8d3b092789da4d84131a"></span>
         <button type="button" class="mark-btn" data-key="i8d3b092789da4d84131a" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i8d3b092789da4d84131a" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i8d3b092789da4d84131a" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -588,6 +606,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">4</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="i2c2f11d955c0a630aca7"></span>
         <button type="button" class="mark-btn" data-key="i2c2f11d955c0a630aca7" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i2c2f11d955c0a630aca7" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i2c2f11d955c0a630aca7" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -625,6 +644,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">33</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="idfd498ef451ee8c1ebbf"></span>
         <button type="button" class="mark-btn" data-key="idfd498ef451ee8c1ebbf" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="idfd498ef451ee8c1ebbf" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="idfd498ef451ee8c1ebbf" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -639,6 +659,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">3</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="i0371f1fed6d562b94312"></span>
         <button type="button" class="mark-btn" data-key="i0371f1fed6d562b94312" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i0371f1fed6d562b94312" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i0371f1fed6d562b94312" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -676,6 +697,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">2</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="idfa529828e29a20fb1ef"></span>
         <button type="button" class="mark-btn" data-key="idfa529828e29a20fb1ef" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="idfa529828e29a20fb1ef" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="idfa529828e29a20fb1ef" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -721,6 +743,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">1</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="i668f60c6a2f345aef317"></span>
         <button type="button" class="mark-btn" data-key="i668f60c6a2f345aef317" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i668f60c6a2f345aef317" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i668f60c6a2f345aef317" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -735,6 +758,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">1</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="id81dd97953f88a3a7134"></span>
         <button type="button" class="mark-btn" data-key="id81dd97953f88a3a7134" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="id81dd97953f88a3a7134" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="id81dd97953f88a3a7134" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -749,6 +773,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">1</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="if41e053345de5144e979"></span>
         <button type="button" class="mark-btn" data-key="if41e053345de5144e979" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="if41e053345de5144e979" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="if41e053345de5144e979" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -804,6 +829,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">4</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="i8688175eb69867401357"></span>
         <button type="button" class="mark-btn" data-key="i8688175eb69867401357" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i8688175eb69867401357" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i8688175eb69867401357" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -818,6 +844,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">24</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="ic753333465346ca017e5"></span>
         <button type="button" class="mark-btn" data-key="ic753333465346ca017e5" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="ic753333465346ca017e5" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="ic753333465346ca017e5" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -832,6 +859,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">44</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="i37863843e9207ed3b1a3"></span>
         <button type="button" class="mark-btn" data-key="i37863843e9207ed3b1a3" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i37863843e9207ed3b1a3" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i37863843e9207ed3b1a3" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -846,6 +874,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">16</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="i26afc1bdd6bccbf4caee"></span>
         <button type="button" class="mark-btn" data-key="i26afc1bdd6bccbf4caee" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i26afc1bdd6bccbf4caee" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i26afc1bdd6bccbf4caee" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -860,6 +889,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">8</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="i1dcd50526cff72a008a7"></span>
         <button type="button" class="mark-btn" data-key="i1dcd50526cff72a008a7" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i1dcd50526cff72a008a7" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i1dcd50526cff72a008a7" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -874,6 +904,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">4</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="i0e5dc29c46d23e497673"></span>
         <button type="button" class="mark-btn" data-key="i0e5dc29c46d23e497673" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i0e5dc29c46d23e497673" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i0e5dc29c46d23e497673" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -911,6 +942,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">33</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="i5a4e39ca8e7b92432fe8"></span>
         <button type="button" class="mark-btn" data-key="i5a4e39ca8e7b92432fe8" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i5a4e39ca8e7b92432fe8" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i5a4e39ca8e7b92432fe8" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -925,6 +957,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">3</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="i59143d831d4baab0f769"></span>
         <button type="button" class="mark-btn" data-key="i59143d831d4baab0f769" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i59143d831d4baab0f769" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i59143d831d4baab0f769" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -962,6 +995,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">2</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="i55942b5a925e25e3c19d"></span>
         <button type="button" class="mark-btn" data-key="i55942b5a925e25e3c19d" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i55942b5a925e25e3c19d" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i55942b5a925e25e3c19d" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -976,6 +1010,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">2</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="i176db0d292de41377782"></span>
         <button type="button" class="mark-btn" data-key="i176db0d292de41377782" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i176db0d292de41377782" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i176db0d292de41377782" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -990,6 +1025,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">12</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="i4c286403a1550e26e5f9"></span>
         <button type="button" class="mark-btn" data-key="i4c286403a1550e26e5f9" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i4c286403a1550e26e5f9" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i4c286403a1550e26e5f9" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1004,6 +1040,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">10</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="i469e01b859b713f56e40"></span>
         <button type="button" class="mark-btn" data-key="i469e01b859b713f56e40" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i469e01b859b713f56e40" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i469e01b859b713f56e40" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1029,6 +1066,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">4</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="i958c9dbdcbda6f1c89e4"></span>
         <button type="button" class="mark-btn" data-key="i958c9dbdcbda6f1c89e4" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i958c9dbdcbda6f1c89e4" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i958c9dbdcbda6f1c89e4" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1044,15 +1082,15 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="tw-open">&#9656;</span>
         <span class="op-rank">03</span>
         <span class="op-name">OPERAÇÃO DE PINTURA</span>
-        <span class="op-stat"><span id="op25-ncargas">4</span> carga(s) &middot; <span id="op25-nitens">14</span> produto(s)</span>
-        <span class="op-stat-pend"><span id="op25-pend">162</span> un. pendentes</span>
+        <span class="op-stat"><span id="op25-ncargas">4</span> carga(s) &middot; <span id="op25-nitens">13</span> produto(s)</span>
+        <span class="op-stat-pend"><span id="op25-pend">160</span> un. pendentes</span>
       </summary>
       <div class="op-body">
     <details class="un-block" open>
       <summary>
         <span class="tw-open">&#9662;</span>
         <span class="un-name">Metalúrgica</span>
-        <span class="un-stat"><span id="un26-ncargas">4</span> carga(s) &middot; <span id="un26-nitens">14</span> produto(s) &middot; <b id="un26-pend">162</b> un. pendentes</span>
+        <span class="un-stat"><span id="un26-ncargas">4</span> carga(s) &middot; <span id="un26-nitens">13</span> produto(s) &middot; <b id="un26-pend">160</b> un. pendentes</span>
       </summary>
       <div class="un-body">
     <details class="carga-block">
@@ -1084,6 +1122,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">4</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="ie867bfa14697a4028f35"></span>
         <button type="button" class="mark-btn" data-key="ie867bfa14697a4028f35" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="ie867bfa14697a4028f35" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="ie867bfa14697a4028f35" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1098,6 +1137,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">24</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="i4a6ad2eb802336ec6838"></span>
         <button type="button" class="mark-btn" data-key="i4a6ad2eb802336ec6838" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i4a6ad2eb802336ec6838" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i4a6ad2eb802336ec6838" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1112,6 +1152,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">44</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="ib52e4b62b1fca85905cc"></span>
         <button type="button" class="mark-btn" data-key="ib52e4b62b1fca85905cc" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="ib52e4b62b1fca85905cc" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="ib52e4b62b1fca85905cc" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1126,6 +1167,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">16</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="ie7bfd4a0be8d8cc4715f"></span>
         <button type="button" class="mark-btn" data-key="ie7bfd4a0be8d8cc4715f" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="ie7bfd4a0be8d8cc4715f" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="ie7bfd4a0be8d8cc4715f" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1137,11 +1179,64 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
     <details class="carga-block">
       <summary>
         <span class="tw-open">&#9656;</span>
-        <span class="carga-id">CARGA 20260901005</span>
+        <span class="carga-id">CARGA 20260908012</span>
         <span class="carga-bar-wrap"><span class="carga-bar"><span id="ca29-bar" class="carga-bar-fill pill-crit" style="width:0%"></span></span></span>
-        <span class="carga-stat"><span id="ca29-npedidos">2</span> pedido(s) &middot; <span id="ca29-nprodutos">4</span> produto(s)</span>
+        <span class="carga-stat"><span id="ca29-npedidos">1</span> pedido(s) &middot; <span id="ca29-nprodutos">2</span> produto(s)</span>
         <span class="carga-stat carga-stat-pend"><b id="ca29-pend">36</b> pendentes</span>
         <span id="ca29-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-cidades">ANANINDEUA/PA</span>
+      </summary>
+      <div class="carga-body">
+    <div class="pedido-block">
+      <div class="pedido-head">
+        <span class="pedido-tag">PEDIDO 76551</span>
+        <span class="pedido-who">PEGASUS COMERCIO E SERVICOS LTDA &middot; ANANINDEUA/PA</span>
+        <span class="pedido-stat"><span id="pd30-nitens">2</span> item(ns) &middot; <b id="pd30-pend">36</b> un. pendentes</span>
+      </div>
+      <table class="itens-table">
+        <thead><tr><th>Produto</th><th>Feito&nbsp;/&nbsp;Necess&aacute;rio</th><th>Pendente</th><th>%</th><th>Marcar</th></tr></thead>
+        <tbody><tr class="item-row" data-search="39140 - gancho simples 35cm p25 c/ porta etiq pto 76551 pegasus comercio e servicos ltda ananindeua/pa carga 20260908012 metalúrgica operação de pintura sex 18/09/2026" data-key="i3ee72c4bae0fb3eeb7d7"
+      data-necessario="33" data-feito="0" data-produto="39140 - GANCHO SIMPLES 35CM P25 C/ PORTA ETIQ PTO"
+      data-dia="2026-09-18" data-op-nome="OPERAÇÃO DE PINTURA" data-carga-num="20260908012" data-pedido-num="76551"
+      data-un-nome="Metalúrgica"
+      data-day="dy1" data-op="op25" data-un="un26" data-carga="ca29" data-pedido="pd30">
+      <td class="c-produto">39140 - GANCHO SIMPLES 35CM P25 C/ PORTA ETIQ PTO</td>
+      <td class="c-num">0<span class="slash">/</span>33</td>
+      <td class="c-num c-pend"><span class="cell-pend">33</span></td>
+      <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
+      <td class="c-mark">
+        <span class="peer-badge" data-key="i3ee72c4bae0fb3eeb7d7"></span>
+        <button type="button" class="mark-btn" data-key="i3ee72c4bae0fb3eeb7d7" data-action="produzido" title="Marcar como produzido">&#10003;</button>
+        <button type="button" class="mark-btn" data-key="i3ee72c4bae0fb3eeb7d7" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
+        <button type="button" class="mark-btn" data-key="i3ee72c4bae0fb3eeb7d7" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
+      </td>
+    </tr><tr class="item-row" data-search="54690 - barra de gancheira p25 1245 (somente barra) pto 76551 pegasus comercio e servicos ltda ananindeua/pa carga 20260908012 metalúrgica operação de pintura sex 18/09/2026" data-key="ia9d4c6c3d6d5aa562e64"
+      data-necessario="3" data-feito="0" data-produto="54690 - BARRA DE GANCHEIRA P25 1245 (SOMENTE BARRA) PTO"
+      data-dia="2026-09-18" data-op-nome="OPERAÇÃO DE PINTURA" data-carga-num="20260908012" data-pedido-num="76551"
+      data-un-nome="Metalúrgica"
+      data-day="dy1" data-op="op25" data-un="un26" data-carga="ca29" data-pedido="pd30">
+      <td class="c-produto">54690 - BARRA DE GANCHEIRA P25 1245 (SOMENTE BARRA) PTO</td>
+      <td class="c-num">0<span class="slash">/</span>3</td>
+      <td class="c-num c-pend"><span class="cell-pend">3</span></td>
+      <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
+      <td class="c-mark">
+        <span class="peer-badge" data-key="ia9d4c6c3d6d5aa562e64"></span>
+        <button type="button" class="mark-btn" data-key="ia9d4c6c3d6d5aa562e64" data-action="produzido" title="Marcar como produzido">&#10003;</button>
+        <button type="button" class="mark-btn" data-key="ia9d4c6c3d6d5aa562e64" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
+        <button type="button" class="mark-btn" data-key="ia9d4c6c3d6d5aa562e64" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
+      </td>
+    </tr></tbody>
+      </table>
+    </div></div>
+    </details>
+    <details class="carga-block">
+      <summary>
+        <span class="tw-open">&#9656;</span>
+        <span class="carga-id">CARGA 20260901005</span>
+        <span class="carga-bar-wrap"><span class="carga-bar"><span id="ca31-bar" class="carga-bar-fill pill-crit" style="width:0%"></span></span></span>
+        <span class="carga-stat"><span id="ca31-npedidos">2</span> pedido(s) &middot; <span id="ca31-nprodutos">4</span> produto(s)</span>
+        <span class="carga-stat carga-stat-pend"><b id="ca31-pend">34</b> pendentes</span>
+        <span id="ca31-pill" class="pill pill-crit pill-compact">0%</span>
         <span class="carga-cidades">BOM JESUS DA SERRA/BA / TUCANO/BA</span>
       </summary>
       <div class="carga-body">
@@ -1149,7 +1244,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <div class="pedido-head">
         <span class="pedido-tag">PEDIDO 76247</span>
         <span class="pedido-who">WELTON SILVA ANDRADE LTDA &middot; BOM JESUS DA SERRA/BA</span>
-        <span class="pedido-stat"><span id="pd30-nitens">4</span> item(ns) &middot; <b id="pd30-pend">26</b> un. pendentes</span>
+        <span class="pedido-stat"><span id="pd32-nitens">4</span> item(ns) &middot; <b id="pd32-pend">26</b> un. pendentes</span>
       </div>
       <table class="itens-table">
         <thead><tr><th>Produto</th><th>Feito&nbsp;/&nbsp;Necess&aacute;rio</th><th>Pendente</th><th>%</th><th>Marcar</th></tr></thead>
@@ -1157,12 +1252,13 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       data-necessario="2" data-feito="0" data-produto="132230 - COLUNA CREMALHEIRA  P25 KIT MARCENARIA 2040MM- PTO"
       data-dia="2026-09-18" data-op-nome="OPERAÇÃO DE PINTURA" data-carga-num="20260901005" data-pedido-num="76247"
       data-un-nome="Metalúrgica"
-      data-day="dy1" data-op="op25" data-un="un26" data-carga="ca29" data-pedido="pd30">
+      data-day="dy1" data-op="op25" data-un="un26" data-carga="ca31" data-pedido="pd32">
       <td class="c-produto">132230 - COLUNA CREMALHEIRA  P25 KIT MARCENARIA 2040MM- PTO</td>
       <td class="c-num">0<span class="slash">/</span>2</td>
       <td class="c-num c-pend"><span class="cell-pend">2</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="i81054fcdd837ccd6b006"></span>
         <button type="button" class="mark-btn" data-key="i81054fcdd837ccd6b006" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i81054fcdd837ccd6b006" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i81054fcdd837ccd6b006" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1171,12 +1267,13 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       data-necessario="2" data-feito="0" data-produto="139797 - SUPORTE TUBO FRONTAL ADEGA BAT RACK 81 X 27 X 1,55MM PTO"
       data-dia="2026-09-18" data-op-nome="OPERAÇÃO DE PINTURA" data-carga-num="20260901005" data-pedido-num="76247"
       data-un-nome="Metalúrgica"
-      data-day="dy1" data-op="op25" data-un="un26" data-carga="ca29" data-pedido="pd30">
+      data-day="dy1" data-op="op25" data-un="un26" data-carga="ca31" data-pedido="pd32">
       <td class="c-produto">139797 - SUPORTE TUBO FRONTAL ADEGA BAT RACK 81 X 27 X 1,55MM PTO</td>
       <td class="c-num">0<span class="slash">/</span>2</td>
       <td class="c-num c-pend"><span class="cell-pend">2</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="icbe94721488096f17954"></span>
         <button type="button" class="mark-btn" data-key="icbe94721488096f17954" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="icbe94721488096f17954" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="icbe94721488096f17954" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1185,12 +1282,13 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       data-necessario="12" data-feito="0" data-produto="149954 - APARADOR CHAPA MOD.440MM - PTO"
       data-dia="2026-09-18" data-op-nome="OPERAÇÃO DE PINTURA" data-carga-num="20260901005" data-pedido-num="76247"
       data-un-nome="Metalúrgica"
-      data-day="dy1" data-op="op25" data-un="un26" data-carga="ca29" data-pedido="pd30">
+      data-day="dy1" data-op="op25" data-un="un26" data-carga="ca31" data-pedido="pd32">
       <td class="c-produto">149954 - APARADOR CHAPA MOD.440MM - PTO</td>
       <td class="c-num">0<span class="slash">/</span>12</td>
       <td class="c-num c-pend"><span class="cell-pend">12</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="i14b7000f21e4832cce5d"></span>
         <button type="button" class="mark-btn" data-key="i14b7000f21e4832cce5d" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i14b7000f21e4832cce5d" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i14b7000f21e4832cce5d" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1199,12 +1297,13 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       data-necessario="10" data-feito="0" data-produto="159176 - TRAVESSA APOIO SUPORTE PRATELEIRA MARCENARIA DSM 02 952X20X1,95 MOD 1000 MM PTO"
       data-dia="2026-09-18" data-op-nome="OPERAÇÃO DE PINTURA" data-carga-num="20260901005" data-pedido-num="76247"
       data-un-nome="Metalúrgica"
-      data-day="dy1" data-op="op25" data-un="un26" data-carga="ca29" data-pedido="pd30">
+      data-day="dy1" data-op="op25" data-un="un26" data-carga="ca31" data-pedido="pd32">
       <td class="c-produto">159176 - TRAVESSA APOIO SUPORTE PRATELEIRA MARCENARIA DSM 02 952X20X1,95 MOD 1000 MM PTO</td>
       <td class="c-num">0<span class="slash">/</span>10</td>
       <td class="c-num c-pend"><span class="cell-pend">10</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="ief8accdf943876178ed9"></span>
         <button type="button" class="mark-btn" data-key="ief8accdf943876178ed9" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="ief8accdf943876178ed9" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="ief8accdf943876178ed9" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1216,34 +1315,21 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <div class="pedido-head">
         <span class="pedido-tag">PEDIDO 76529</span>
         <span class="pedido-who">FABIOLA ANDRADE DA SILVA LTDA &middot; TUCANO/BA</span>
-        <span class="pedido-stat"><span id="pd31-nitens">3</span> item(ns) &middot; <b id="pd31-pend">10</b> un. pendentes</span>
+        <span class="pedido-stat"><span id="pd33-nitens">2</span> item(ns) &middot; <b id="pd33-pend">8</b> un. pendentes</span>
       </div>
       <table class="itens-table">
         <thead><tr><th>Produto</th><th>Feito&nbsp;/&nbsp;Necess&aacute;rio</th><th>Pendente</th><th>%</th><th>Marcar</th></tr></thead>
-        <tbody><tr class="item-row" data-search="132230 - coluna cremalheira  p25 kit marcenaria 2040mm- pto 76529 fabiola andrade da silva ltda tucano/ba carga 20260901005 metalúrgica operação de pintura sex 18/09/2026" data-key="i2adfcd1345fecedb6b80"
-      data-necessario="2" data-feito="0" data-produto="132230 - COLUNA CREMALHEIRA  P25 KIT MARCENARIA 2040MM- PTO"
-      data-dia="2026-09-18" data-op-nome="OPERAÇÃO DE PINTURA" data-carga-num="20260901005" data-pedido-num="76529"
-      data-un-nome="Metalúrgica"
-      data-day="dy1" data-op="op25" data-un="un26" data-carga="ca29" data-pedido="pd31">
-      <td class="c-produto">132230 - COLUNA CREMALHEIRA  P25 KIT MARCENARIA 2040MM- PTO</td>
-      <td class="c-num">0<span class="slash">/</span>2</td>
-      <td class="c-num c-pend"><span class="cell-pend">2</span></td>
-      <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
-      <td class="c-mark">
-        <button type="button" class="mark-btn" data-key="i2adfcd1345fecedb6b80" data-action="produzido" title="Marcar como produzido">&#10003;</button>
-        <button type="button" class="mark-btn" data-key="i2adfcd1345fecedb6b80" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
-        <button type="button" class="mark-btn" data-key="i2adfcd1345fecedb6b80" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
-      </td>
-    </tr><tr class="item-row" data-search="149954 - aparador chapa mod.440mm - pto 76529 fabiola andrade da silva ltda tucano/ba carga 20260901005 metalúrgica operação de pintura sex 18/09/2026" data-key="i90a0c0a538cb941e3c6b"
+        <tbody><tr class="item-row" data-search="149954 - aparador chapa mod.440mm - pto 76529 fabiola andrade da silva ltda tucano/ba carga 20260901005 metalúrgica operação de pintura sex 18/09/2026" data-key="i90a0c0a538cb941e3c6b"
       data-necessario="4" data-feito="0" data-produto="149954 - APARADOR CHAPA MOD.440MM - PTO"
       data-dia="2026-09-18" data-op-nome="OPERAÇÃO DE PINTURA" data-carga-num="20260901005" data-pedido-num="76529"
       data-un-nome="Metalúrgica"
-      data-day="dy1" data-op="op25" data-un="un26" data-carga="ca29" data-pedido="pd31">
+      data-day="dy1" data-op="op25" data-un="un26" data-carga="ca31" data-pedido="pd33">
       <td class="c-produto">149954 - APARADOR CHAPA MOD.440MM - PTO</td>
       <td class="c-num">0<span class="slash">/</span>4</td>
       <td class="c-num c-pend"><span class="cell-pend">4</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="i90a0c0a538cb941e3c6b"></span>
         <button type="button" class="mark-btn" data-key="i90a0c0a538cb941e3c6b" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i90a0c0a538cb941e3c6b" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i90a0c0a538cb941e3c6b" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1252,66 +1338,16 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       data-necessario="4" data-feito="0" data-produto="159176 - TRAVESSA APOIO SUPORTE PRATELEIRA MARCENARIA DSM 02 952X20X1,95 MOD 1000 MM PTO"
       data-dia="2026-09-18" data-op-nome="OPERAÇÃO DE PINTURA" data-carga-num="20260901005" data-pedido-num="76529"
       data-un-nome="Metalúrgica"
-      data-day="dy1" data-op="op25" data-un="un26" data-carga="ca29" data-pedido="pd31">
+      data-day="dy1" data-op="op25" data-un="un26" data-carga="ca31" data-pedido="pd33">
       <td class="c-produto">159176 - TRAVESSA APOIO SUPORTE PRATELEIRA MARCENARIA DSM 02 952X20X1,95 MOD 1000 MM PTO</td>
       <td class="c-num">0<span class="slash">/</span>4</td>
       <td class="c-num c-pend"><span class="cell-pend">4</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="ib32dff6c0c4bfac138d0"></span>
         <button type="button" class="mark-btn" data-key="ib32dff6c0c4bfac138d0" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="ib32dff6c0c4bfac138d0" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="ib32dff6c0c4bfac138d0" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
-      </td>
-    </tr></tbody>
-      </table>
-    </div></div>
-    </details>
-    <details class="carga-block">
-      <summary>
-        <span class="tw-open">&#9656;</span>
-        <span class="carga-id">CARGA 20260908012</span>
-        <span class="carga-bar-wrap"><span class="carga-bar"><span id="ca32-bar" class="carga-bar-fill pill-crit" style="width:0%"></span></span></span>
-        <span class="carga-stat"><span id="ca32-npedidos">1</span> pedido(s) &middot; <span id="ca32-nprodutos">2</span> produto(s)</span>
-        <span class="carga-stat carga-stat-pend"><b id="ca32-pend">36</b> pendentes</span>
-        <span id="ca32-pill" class="pill pill-crit pill-compact">0%</span>
-        <span class="carga-cidades">ANANINDEUA/PA</span>
-      </summary>
-      <div class="carga-body">
-    <div class="pedido-block">
-      <div class="pedido-head">
-        <span class="pedido-tag">PEDIDO 76551</span>
-        <span class="pedido-who">PEGASUS COMERCIO E SERVICOS LTDA &middot; ANANINDEUA/PA</span>
-        <span class="pedido-stat"><span id="pd33-nitens">2</span> item(ns) &middot; <b id="pd33-pend">36</b> un. pendentes</span>
-      </div>
-      <table class="itens-table">
-        <thead><tr><th>Produto</th><th>Feito&nbsp;/&nbsp;Necess&aacute;rio</th><th>Pendente</th><th>%</th><th>Marcar</th></tr></thead>
-        <tbody><tr class="item-row" data-search="39140 - gancho simples 35cm p25 c/ porta etiq pto 76551 pegasus comercio e servicos ltda ananindeua/pa carga 20260908012 metalúrgica operação de pintura sex 18/09/2026" data-key="i3ee72c4bae0fb3eeb7d7"
-      data-necessario="33" data-feito="0" data-produto="39140 - GANCHO SIMPLES 35CM P25 C/ PORTA ETIQ PTO"
-      data-dia="2026-09-18" data-op-nome="OPERAÇÃO DE PINTURA" data-carga-num="20260908012" data-pedido-num="76551"
-      data-un-nome="Metalúrgica"
-      data-day="dy1" data-op="op25" data-un="un26" data-carga="ca32" data-pedido="pd33">
-      <td class="c-produto">39140 - GANCHO SIMPLES 35CM P25 C/ PORTA ETIQ PTO</td>
-      <td class="c-num">0<span class="slash">/</span>33</td>
-      <td class="c-num c-pend"><span class="cell-pend">33</span></td>
-      <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
-      <td class="c-mark">
-        <button type="button" class="mark-btn" data-key="i3ee72c4bae0fb3eeb7d7" data-action="produzido" title="Marcar como produzido">&#10003;</button>
-        <button type="button" class="mark-btn" data-key="i3ee72c4bae0fb3eeb7d7" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
-        <button type="button" class="mark-btn" data-key="i3ee72c4bae0fb3eeb7d7" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
-      </td>
-    </tr><tr class="item-row" data-search="54690 - barra de gancheira p25 1245 (somente barra) pto 76551 pegasus comercio e servicos ltda ananindeua/pa carga 20260908012 metalúrgica operação de pintura sex 18/09/2026" data-key="ia9d4c6c3d6d5aa562e64"
-      data-necessario="3" data-feito="0" data-produto="54690 - BARRA DE GANCHEIRA P25 1245 (SOMENTE BARRA) PTO"
-      data-dia="2026-09-18" data-op-nome="OPERAÇÃO DE PINTURA" data-carga-num="20260908012" data-pedido-num="76551"
-      data-un-nome="Metalúrgica"
-      data-day="dy1" data-op="op25" data-un="un26" data-carga="ca32" data-pedido="pd33">
-      <td class="c-produto">54690 - BARRA DE GANCHEIRA P25 1245 (SOMENTE BARRA) PTO</td>
-      <td class="c-num">0<span class="slash">/</span>3</td>
-      <td class="c-num c-pend"><span class="cell-pend">3</span></td>
-      <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
-      <td class="c-mark">
-        <button type="button" class="mark-btn" data-key="ia9d4c6c3d6d5aa562e64" data-action="produzido" title="Marcar como produzido">&#10003;</button>
-        <button type="button" class="mark-btn" data-key="ia9d4c6c3d6d5aa562e64" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
-        <button type="button" class="mark-btn" data-key="ia9d4c6c3d6d5aa562e64" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
       </td>
     </tr></tbody>
       </table>
@@ -1346,6 +1382,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">2</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="i00e7335b50e261659a88"></span>
         <button type="button" class="mark-btn" data-key="i00e7335b50e261659a88" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i00e7335b50e261659a88" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i00e7335b50e261659a88" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1361,15 +1398,15 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="tw-open">&#9656;</span>
         <span class="op-rank">04</span>
         <span class="op-name">LIMPEZA</span>
-        <span class="op-stat"><span id="op36-ncargas">4</span> carga(s) &middot; <span id="op36-nitens">7</span> produto(s)</span>
-        <span class="op-stat-pend"><span id="op36-pend">7</span> un. pendentes</span>
+        <span class="op-stat"><span id="op36-ncargas">1</span> carga(s) &middot; <span id="op36-nitens">2</span> produto(s)</span>
+        <span class="op-stat-pend"><span id="op36-pend">2</span> un. pendentes</span>
       </summary>
       <div class="op-body">
     <details class="un-block" open>
       <summary>
         <span class="tw-open">&#9662;</span>
         <span class="un-name">Refrigeração</span>
-        <span class="un-stat"><span id="un37-ncargas">4</span> carga(s) &middot; <span id="un37-nitens">7</span> produto(s) &middot; <b id="un37-pend">7</b> un. pendentes</span>
+        <span class="un-stat"><span id="un37-ncargas">1</span> carga(s) &middot; <span id="un37-nitens">2</span> produto(s) &middot; <b id="un37-pend">2</b> un. pendentes</span>
       </summary>
       <div class="un-body">
     <details class="carga-block">
@@ -1401,6 +1438,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">1</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="i06a5d442164b45448cfa"></span>
         <button type="button" class="mark-btn" data-key="i06a5d442164b45448cfa" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i06a5d442164b45448cfa" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i06a5d442164b45448cfa" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1415,148 +1453,10 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <td class="c-num c-pend"><span class="cell-pend">1</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="icf142256159e8fa19a2f"></span>
         <button type="button" class="mark-btn" data-key="icf142256159e8fa19a2f" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="icf142256159e8fa19a2f" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="icf142256159e8fa19a2f" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
-      </td>
-    </tr></tbody>
-      </table>
-    </div></div>
-    </details>
-    <details class="carga-block">
-      <summary>
-        <span class="tw-open">&#9656;</span>
-        <span class="carga-id">CARGA 20260901011</span>
-        <span class="carga-bar-wrap"><span class="carga-bar"><span id="ca40-bar" class="carga-bar-fill pill-crit" style="width:0%"></span></span></span>
-        <span class="carga-stat"><span id="ca40-npedidos">1</span> pedido(s) &middot; <span id="ca40-nprodutos">2</span> produto(s)</span>
-        <span class="carga-stat carga-stat-pend"><b id="ca40-pend">2</b> pendentes</span>
-        <span id="ca40-pill" class="pill pill-crit pill-compact">0%</span>
-        <span class="carga-cidades">SAO RAIMUNDO NONATO/PI</span>
-      </summary>
-      <div class="carga-body">
-    <div class="pedido-block">
-      <div class="pedido-head">
-        <span class="pedido-tag">PEDIDO 76430</span>
-        <span class="pedido-who">SUPERMERCADO PI KENO LTDA &middot; SAO RAIMUNDO NONATO/PI</span>
-        <span class="pedido-stat"><span id="pd41-nitens">2</span> item(ns) &middot; <b id="pd41-pend">2</b> un. pendentes</span>
-      </div>
-      <table class="itens-table">
-        <thead><tr><th>Produto</th><th>Feito&nbsp;/&nbsp;Necess&aacute;rio</th><th>Pendente</th><th>%</th><th>Marcar</th></tr></thead>
-        <tbody><tr class="item-row" data-search="162191 - ccp-fit2000-vr/vdf/vspt/af/m - acougue prateleira fit vidro reto 2000mm - bojo inox - pto 76430 supermercado pi keno ltda sao raimundo nonato/pi carga 20260901011 refrigeração limpeza sex 18/09/2026" data-key="id2eb9c78534df71cf920"
-      data-necessario="1" data-feito="0" data-produto="162191 - CCP-FIT2000-VR/VDF/VSPT/AF/M - ACOUGUE PRATELEIRA FIT VIDRO RETO 2000MM - BOJO INOX - PTO"
-      data-dia="2026-09-18" data-op-nome="LIMPEZA" data-carga-num="20260901011" data-pedido-num="76430"
-      data-un-nome="Refrigeração"
-      data-day="dy1" data-op="op36" data-un="un37" data-carga="ca40" data-pedido="pd41">
-      <td class="c-produto">162191 - CCP-FIT2000-VR/VDF/VSPT/AF/M - ACOUGUE PRATELEIRA FIT VIDRO RETO 2000MM - BOJO INOX - PTO</td>
-      <td class="c-num">0<span class="slash">/</span>1</td>
-      <td class="c-num c-pend"><span class="cell-pend">1</span></td>
-      <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
-      <td class="c-mark">
-        <button type="button" class="mark-btn" data-key="id2eb9c78534df71cf920" data-action="produzido" title="Marcar como produzido">&#10003;</button>
-        <button type="button" class="mark-btn" data-key="id2eb9c78534df71cf920" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
-        <button type="button" class="mark-btn" data-key="id2eb9c78534df71cf920" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
-      </td>
-    </tr><tr class="item-row" data-search="92517 - tech-inf/flv2500/4pt/m balcao flv motor 4 portas infinity int bco / ext pto - cestos ipet 76430 supermercado pi keno ltda sao raimundo nonato/pi carga 20260901011 refrigeração limpeza sex 18/09/2026" data-key="i331ce6f1da6cedb213cb"
-      data-necessario="1" data-feito="0" data-produto="92517 - TECH-INF/FLV2500/4PT/M BALCAO FLV MOTOR 4 PORTAS INFINITY INT BCO / EXT PTO - CESTOS IPET"
-      data-dia="2026-09-18" data-op-nome="LIMPEZA" data-carga-num="20260901011" data-pedido-num="76430"
-      data-un-nome="Refrigeração"
-      data-day="dy1" data-op="op36" data-un="un37" data-carga="ca40" data-pedido="pd41">
-      <td class="c-produto">92517 - TECH-INF/FLV2500/4PT/M BALCAO FLV MOTOR 4 PORTAS INFINITY INT BCO / EXT PTO - CESTOS IPET</td>
-      <td class="c-num">0<span class="slash">/</span>1</td>
-      <td class="c-num c-pend"><span class="cell-pend">1</span></td>
-      <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
-      <td class="c-mark">
-        <button type="button" class="mark-btn" data-key="i331ce6f1da6cedb213cb" data-action="produzido" title="Marcar como produzido">&#10003;</button>
-        <button type="button" class="mark-btn" data-key="i331ce6f1da6cedb213cb" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
-        <button type="button" class="mark-btn" data-key="i331ce6f1da6cedb213cb" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
-      </td>
-    </tr></tbody>
-      </table>
-    </div></div>
-    </details>
-    <details class="carga-block">
-      <summary>
-        <span class="tw-open">&#9656;</span>
-        <span class="carga-id">CARGA 20260901005</span>
-        <span class="carga-bar-wrap"><span class="carga-bar"><span id="ca42-bar" class="carga-bar-fill pill-crit" style="width:0%"></span></span></span>
-        <span class="carga-stat"><span id="ca42-npedidos">1</span> pedido(s) &middot; <span id="ca42-nprodutos">2</span> produto(s)</span>
-        <span class="carga-stat carga-stat-pend"><b id="ca42-pend">2</b> pendentes</span>
-        <span id="ca42-pill" class="pill pill-crit pill-compact">0%</span>
-        <span class="carga-cidades">TUCANO/BA</span>
-      </summary>
-      <div class="carga-body">
-    <div class="pedido-block">
-      <div class="pedido-head">
-        <span class="pedido-tag">PEDIDO 76529</span>
-        <span class="pedido-who">FABIOLA ANDRADE DA SILVA LTDA &middot; TUCANO/BA</span>
-        <span class="pedido-stat"><span id="pd43-nitens">2</span> item(ns) &middot; <b id="pd43-pend">2</b> un. pendentes</span>
-      </div>
-      <table class="itens-table">
-        <thead><tr><th>Produto</th><th>Feito&nbsp;/&nbsp;Necess&aacute;rio</th><th>Pendente</th><th>%</th><th>Marcar</th></tr></thead>
-        <tbody><tr class="item-row" data-search="108562 - cct-fit3000-vr/vdf/vspt/af/m - acougue tendal fit vidro reto 3000mm - pto 76529 fabiola andrade da silva ltda tucano/ba carga 20260901005 refrigeração limpeza sex 18/09/2026" data-key="i3c4e3e3abda167a7f27c"
-      data-necessario="1" data-feito="0" data-produto="108562 - CCT-FIT3000-VR/VDF/VSPT/AF/M - ACOUGUE TENDAL FIT VIDRO RETO 3000MM - PTO"
-      data-dia="2026-09-18" data-op-nome="LIMPEZA" data-carga-num="20260901005" data-pedido-num="76529"
-      data-un-nome="Refrigeração"
-      data-day="dy1" data-op="op36" data-un="un37" data-carga="ca42" data-pedido="pd43">
-      <td class="c-produto">108562 - CCT-FIT3000-VR/VDF/VSPT/AF/M - ACOUGUE TENDAL FIT VIDRO RETO 3000MM - PTO</td>
-      <td class="c-num">0<span class="slash">/</span>1</td>
-      <td class="c-num c-pend"><span class="cell-pend">1</span></td>
-      <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
-      <td class="c-mark">
-        <button type="button" class="mark-btn" data-key="i3c4e3e3abda167a7f27c" data-action="produzido" title="Marcar como produzido">&#10003;</button>
-        <button type="button" class="mark-btn" data-key="i3c4e3e3abda167a7f27c" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
-        <button type="button" class="mark-btn" data-key="i3c4e3e3abda167a7f27c" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
-      </td>
-    </tr><tr class="item-row" data-search="155282 - vdi-prime/bd3750/6pt/m - balcão bebidas dual prime on-off 6 portas pivotantes infinity - pto 76529 fabiola andrade da silva ltda tucano/ba carga 20260901005 refrigeração limpeza sex 18/09/2026" data-key="ic9660b418ee50764d147"
-      data-necessario="1" data-feito="0" data-produto="155282 - VDI-PRIME/BD3750/6PT/M - BALCÃO BEBIDAS DUAL PRIME ON-OFF 6 PORTAS PIVOTANTES INFINITY - PTO"
-      data-dia="2026-09-18" data-op-nome="LIMPEZA" data-carga-num="20260901005" data-pedido-num="76529"
-      data-un-nome="Refrigeração"
-      data-day="dy1" data-op="op36" data-un="un37" data-carga="ca42" data-pedido="pd43">
-      <td class="c-produto">155282 - VDI-PRIME/BD3750/6PT/M - BALCÃO BEBIDAS DUAL PRIME ON-OFF 6 PORTAS PIVOTANTES INFINITY - PTO</td>
-      <td class="c-num">0<span class="slash">/</span>1</td>
-      <td class="c-num c-pend"><span class="cell-pend">1</span></td>
-      <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
-      <td class="c-mark">
-        <button type="button" class="mark-btn" data-key="ic9660b418ee50764d147" data-action="produzido" title="Marcar como produzido">&#10003;</button>
-        <button type="button" class="mark-btn" data-key="ic9660b418ee50764d147" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
-        <button type="button" class="mark-btn" data-key="ic9660b418ee50764d147" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
-      </td>
-    </tr></tbody>
-      </table>
-    </div></div>
-    </details>
-    <details class="carga-block">
-      <summary>
-        <span class="tw-open">&#9656;</span>
-        <span class="carga-id">CARGA 20260918002</span>
-        <span class="carga-bar-wrap"><span class="carga-bar"><span id="ca44-bar" class="carga-bar-fill pill-crit" style="width:0%"></span></span></span>
-        <span class="carga-stat"><span id="ca44-npedidos">1</span> pedido(s) &middot; <span id="ca44-nprodutos">1</span> produto(s)</span>
-        <span class="carga-stat carga-stat-pend"><b id="ca44-pend">1</b> pendentes</span>
-        <span id="ca44-pill" class="pill pill-crit pill-compact">0%</span>
-        <span class="carga-cidades">SAO MIGUEL DO OESTE/SC</span>
-      </summary>
-      <div class="carga-body">
-    <div class="pedido-block">
-      <div class="pedido-head">
-        <span class="pedido-tag">PEDIDO 76921</span>
-        <span class="pedido-who">MARCON SUPERMERCADOS LTDA &middot; SAO MIGUEL DO OESTE/SC</span>
-        <span class="pedido-stat"><span id="pd45-nitens">1</span> item(ns) &middot; <b id="pd45-pend">1</b> un. pendentes</span>
-      </div>
-      <table class="itens-table">
-        <thead><tr><th>Produto</th><th>Feito&nbsp;/&nbsp;Necess&aacute;rio</th><th>Pendente</th><th>%</th><th>Marcar</th></tr></thead>
-        <tbody><tr class="item-row" data-search="68302 - jjice-iac1310/inv - ilha aberta central para resfriados com motor inverter 1310mm - pto 76921 marcon supermercados ltda sao miguel do oeste/sc carga 20260918002 refrigeração limpeza sex 18/09/2026" data-key="ia1be9f479726104fda28"
-      data-necessario="1" data-feito="0" data-produto="68302 - JJICE-IAC1310/INV - ILHA ABERTA CENTRAL PARA RESFRIADOS COM MOTOR INVERTER 1310MM - PTO"
-      data-dia="2026-09-18" data-op-nome="LIMPEZA" data-carga-num="20260918002" data-pedido-num="76921"
-      data-un-nome="Refrigeração"
-      data-day="dy1" data-op="op36" data-un="un37" data-carga="ca44" data-pedido="pd45">
-      <td class="c-produto">68302 - JJICE-IAC1310/INV - ILHA ABERTA CENTRAL PARA RESFRIADOS COM MOTOR INVERTER 1310MM - PTO</td>
-      <td class="c-num">0<span class="slash">/</span>1</td>
-      <td class="c-num c-pend"><span class="cell-pend">1</span></td>
-      <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
-      <td class="c-mark">
-        <button type="button" class="mark-btn" data-key="ia1be9f479726104fda28" data-action="produzido" title="Marcar como produzido">&#10003;</button>
-        <button type="button" class="mark-btn" data-key="ia1be9f479726104fda28" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
-        <button type="button" class="mark-btn" data-key="ia1be9f479726104fda28" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
       </td>
     </tr></tbody>
       </table>
@@ -1568,136 +1468,26 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <summary>
         <span class="tw-open">&#9656;</span>
         <span class="op-rank">05</span>
-        <span class="op-name">GÁS</span>
-        <span class="op-stat"><span id="op46-ncargas">1</span> carga(s) &middot; <span id="op46-nitens">1</span> produto(s)</span>
-        <span class="op-stat-pend"><span id="op46-pend">1</span> un. pendentes</span>
-      </summary>
-      <div class="op-body">
-    <details class="un-block" open>
-      <summary>
-        <span class="tw-open">&#9662;</span>
-        <span class="un-name">Refrigeração</span>
-        <span class="un-stat"><span id="un47-ncargas">1</span> carga(s) &middot; <span id="un47-nitens">1</span> produto(s) &middot; <b id="un47-pend">1</b> un. pendentes</span>
-      </summary>
-      <div class="un-body">
-    <details class="carga-block">
-      <summary>
-        <span class="tw-open">&#9656;</span>
-        <span class="carga-id">CARGA 20260918001</span>
-        <span class="carga-bar-wrap"><span class="carga-bar"><span id="ca48-bar" class="carga-bar-fill pill-crit" style="width:0%"></span></span></span>
-        <span class="carga-stat"><span id="ca48-npedidos">1</span> pedido(s) &middot; <span id="ca48-nprodutos">1</span> produto(s)</span>
-        <span class="carga-stat carga-stat-pend"><b id="ca48-pend">1</b> pendentes</span>
-        <span id="ca48-pill" class="pill pill-crit pill-compact">0%</span>
-        <span class="carga-cidades">PONTA PORA/MS</span>
-      </summary>
-      <div class="carga-body">
-    <div class="pedido-block">
-      <div class="pedido-head">
-        <span class="pedido-tag">PEDIDO 75985</span>
-        <span class="pedido-who">J. RIOS GOMEZ LTDA &middot; PONTA PORA/MS</span>
-        <span class="pedido-stat"><span id="pd49-nitens">1</span> item(ns) &middot; <b id="pd49-pend">1</b> un. pendentes</span>
-      </div>
-      <table class="itens-table">
-        <thead><tr><th>Produto</th><th>Feito&nbsp;/&nbsp;Necess&aacute;rio</th><th>Pendente</th><th>%</th><th>Marcar</th></tr></thead>
-        <tbody><tr class="item-row" data-search="68302 - jjice-iac1310/inv - ilha aberta central para resfriados com motor inverter 1310mm - pto 75985 j. rios gomez ltda ponta pora/ms carga 20260918001 refrigeração gás sex 18/09/2026" data-key="ifeff2f968f706e620208"
-      data-necessario="1" data-feito="0" data-produto="68302 - JJICE-IAC1310/INV - ILHA ABERTA CENTRAL PARA RESFRIADOS COM MOTOR INVERTER 1310MM - PTO"
-      data-dia="2026-09-18" data-op-nome="GÁS" data-carga-num="20260918001" data-pedido-num="75985"
-      data-un-nome="Refrigeração"
-      data-day="dy1" data-op="op46" data-un="un47" data-carga="ca48" data-pedido="pd49">
-      <td class="c-produto">68302 - JJICE-IAC1310/INV - ILHA ABERTA CENTRAL PARA RESFRIADOS COM MOTOR INVERTER 1310MM - PTO</td>
-      <td class="c-num">0<span class="slash">/</span>1</td>
-      <td class="c-num c-pend"><span class="cell-pend">1</span></td>
-      <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
-      <td class="c-mark">
-        <button type="button" class="mark-btn" data-key="ifeff2f968f706e620208" data-action="produzido" title="Marcar como produzido">&#10003;</button>
-        <button type="button" class="mark-btn" data-key="ifeff2f968f706e620208" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
-        <button type="button" class="mark-btn" data-key="ifeff2f968f706e620208" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
-      </td>
-    </tr></tbody>
-      </table>
-    </div></div>
-    </details></div>
-    </details></div>
-    </details>
-    <details class="op-block">
-      <summary>
-        <span class="tw-open">&#9656;</span>
-        <span class="op-rank">06</span>
-        <span class="op-name">ELÉTRICA-MECANICA</span>
-        <span class="op-stat"><span id="op50-ncargas">1</span> carga(s) &middot; <span id="op50-nitens">1</span> produto(s)</span>
-        <span class="op-stat-pend"><span id="op50-pend">1</span> un. pendentes</span>
-      </summary>
-      <div class="op-body">
-    <details class="un-block" open>
-      <summary>
-        <span class="tw-open">&#9662;</span>
-        <span class="un-name">Refrigeração</span>
-        <span class="un-stat"><span id="un51-ncargas">1</span> carga(s) &middot; <span id="un51-nitens">1</span> produto(s) &middot; <b id="un51-pend">1</b> un. pendentes</span>
-      </summary>
-      <div class="un-body">
-    <details class="carga-block">
-      <summary>
-        <span class="tw-open">&#9656;</span>
-        <span class="carga-id">CARGA 20260918001</span>
-        <span class="carga-bar-wrap"><span class="carga-bar"><span id="ca52-bar" class="carga-bar-fill pill-crit" style="width:0%"></span></span></span>
-        <span class="carga-stat"><span id="ca52-npedidos">1</span> pedido(s) &middot; <span id="ca52-nprodutos">1</span> produto(s)</span>
-        <span class="carga-stat carga-stat-pend"><b id="ca52-pend">1</b> pendentes</span>
-        <span id="ca52-pill" class="pill pill-crit pill-compact">0%</span>
-        <span class="carga-cidades">PONTA PORA/MS</span>
-      </summary>
-      <div class="carga-body">
-    <div class="pedido-block">
-      <div class="pedido-head">
-        <span class="pedido-tag">PEDIDO 75985</span>
-        <span class="pedido-who">J. RIOS GOMEZ LTDA &middot; PONTA PORA/MS</span>
-        <span class="pedido-stat"><span id="pd53-nitens">1</span> item(ns) &middot; <b id="pd53-pend">1</b> un. pendentes</span>
-      </div>
-      <table class="itens-table">
-        <thead><tr><th>Produto</th><th>Feito&nbsp;/&nbsp;Necess&aacute;rio</th><th>Pendente</th><th>%</th><th>Marcar</th></tr></thead>
-        <tbody><tr class="item-row" data-search="68302 - jjice-iac1310/inv - ilha aberta central para resfriados com motor inverter 1310mm - pto 75985 j. rios gomez ltda ponta pora/ms carga 20260918001 refrigeração elétrica-mecanica sex 18/09/2026" data-key="i5d2c446428287948cfe8"
-      data-necessario="1" data-feito="0" data-produto="68302 - JJICE-IAC1310/INV - ILHA ABERTA CENTRAL PARA RESFRIADOS COM MOTOR INVERTER 1310MM - PTO"
-      data-dia="2026-09-18" data-op-nome="ELÉTRICA-MECANICA" data-carga-num="20260918001" data-pedido-num="75985"
-      data-un-nome="Refrigeração"
-      data-day="dy1" data-op="op50" data-un="un51" data-carga="ca52" data-pedido="pd53">
-      <td class="c-produto">68302 - JJICE-IAC1310/INV - ILHA ABERTA CENTRAL PARA RESFRIADOS COM MOTOR INVERTER 1310MM - PTO</td>
-      <td class="c-num">0<span class="slash">/</span>1</td>
-      <td class="c-num c-pend"><span class="cell-pend">1</span></td>
-      <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
-      <td class="c-mark">
-        <button type="button" class="mark-btn" data-key="i5d2c446428287948cfe8" data-action="produzido" title="Marcar como produzido">&#10003;</button>
-        <button type="button" class="mark-btn" data-key="i5d2c446428287948cfe8" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
-        <button type="button" class="mark-btn" data-key="i5d2c446428287948cfe8" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
-      </td>
-    </tr></tbody>
-      </table>
-    </div></div>
-    </details></div>
-    </details></div>
-    </details>
-    <details class="op-block">
-      <summary>
-        <span class="tw-open">&#9656;</span>
-        <span class="op-rank">07</span>
         <span class="op-name">CORTE</span>
-        <span class="op-stat"><span id="op54-ncargas">1</span> carga(s) &middot; <span id="op54-nitens">1</span> produto(s)</span>
-        <span class="op-stat-pend"><span id="op54-pend">1</span> un. pendentes</span>
+        <span class="op-stat"><span id="op40-ncargas">1</span> carga(s) &middot; <span id="op40-nitens">1</span> produto(s)</span>
+        <span class="op-stat-pend"><span id="op40-pend">1</span> un. pendentes</span>
       </summary>
       <div class="op-body">
     <details class="un-block" open>
       <summary>
         <span class="tw-open">&#9662;</span>
         <span class="un-name">Móveis</span>
-        <span class="un-stat"><span id="un55-ncargas">1</span> carga(s) &middot; <span id="un55-nitens">1</span> produto(s) &middot; <b id="un55-pend">1</b> un. pendentes</span>
+        <span class="un-stat"><span id="un41-ncargas">1</span> carga(s) &middot; <span id="un41-nitens">1</span> produto(s) &middot; <b id="un41-pend">1</b> un. pendentes</span>
       </summary>
       <div class="un-body">
     <details class="carga-block">
       <summary>
         <span class="tw-open">&#9656;</span>
         <span class="carga-id">CARGA 20260901011</span>
-        <span class="carga-bar-wrap"><span class="carga-bar"><span id="ca56-bar" class="carga-bar-fill pill-crit" style="width:0%"></span></span></span>
-        <span class="carga-stat"><span id="ca56-npedidos">1</span> pedido(s) &middot; <span id="ca56-nprodutos">1</span> produto(s)</span>
-        <span class="carga-stat carga-stat-pend"><b id="ca56-pend">1</b> pendentes</span>
-        <span id="ca56-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-bar-wrap"><span class="carga-bar"><span id="ca42-bar" class="carga-bar-fill pill-crit" style="width:0%"></span></span></span>
+        <span class="carga-stat"><span id="ca42-npedidos">1</span> pedido(s) &middot; <span id="ca42-nprodutos">1</span> produto(s)</span>
+        <span class="carga-stat carga-stat-pend"><b id="ca42-pend">1</b> pendentes</span>
+        <span id="ca42-pill" class="pill pill-crit pill-compact">0%</span>
         <span class="carga-cidades">SAO RAIMUNDO NONATO/PI</span>
       </summary>
       <div class="carga-body">
@@ -1705,7 +1495,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <div class="pedido-head">
         <span class="pedido-tag">PEDIDO 76855</span>
         <span class="pedido-who">SUPERMERCADO PI KENO LTDA &middot; SAO RAIMUNDO NONATO/PI</span>
-        <span class="pedido-stat"><span id="pd57-nitens">1</span> item(ns) &middot; <b id="pd57-pend">1</b> un. pendentes</span>
+        <span class="pedido-stat"><span id="pd43-nitens">1</span> item(ns) &middot; <b id="pd43-pend">1</b> un. pendentes</span>
       </div>
       <table class="itens-table">
         <thead><tr><th>Produto</th><th>Feito&nbsp;/&nbsp;Necess&aacute;rio</th><th>Pendente</th><th>%</th><th>Marcar</th></tr></thead>
@@ -1713,12 +1503,13 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       data-necessario="1" data-feito="0" data-produto="154146 - MBC-3000X1200/04 - BANCA CENTRAL - AMEIXA NEGRA"
       data-dia="2026-09-18" data-op-nome="CORTE" data-carga-num="20260901011" data-pedido-num="76855"
       data-un-nome="Móveis"
-      data-day="dy1" data-op="op54" data-un="un55" data-carga="ca56" data-pedido="pd57">
+      data-day="dy1" data-op="op40" data-un="un41" data-carga="ca42" data-pedido="pd43">
       <td class="c-produto">154146 - MBC-3000X1200/04 - BANCA CENTRAL - AMEIXA NEGRA</td>
       <td class="c-num">0<span class="slash">/</span>1</td>
       <td class="c-num c-pend"><span class="cell-pend">1</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="iec8c027ffe115d4d0731"></span>
         <button type="button" class="mark-btn" data-key="iec8c027ffe115d4d0731" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="iec8c027ffe115d4d0731" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="iec8c027ffe115d4d0731" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1732,27 +1523,27 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
     <details class="op-block">
       <summary>
         <span class="tw-open">&#9656;</span>
-        <span class="op-rank">08</span>
+        <span class="op-rank">06</span>
         <span class="op-name">COLADEIRA</span>
-        <span class="op-stat"><span id="op58-ncargas">1</span> carga(s) &middot; <span id="op58-nitens">1</span> produto(s)</span>
-        <span class="op-stat-pend"><span id="op58-pend">1</span> un. pendentes</span>
+        <span class="op-stat"><span id="op44-ncargas">1</span> carga(s) &middot; <span id="op44-nitens">1</span> produto(s)</span>
+        <span class="op-stat-pend"><span id="op44-pend">1</span> un. pendentes</span>
       </summary>
       <div class="op-body">
     <details class="un-block" open>
       <summary>
         <span class="tw-open">&#9662;</span>
         <span class="un-name">Móveis</span>
-        <span class="un-stat"><span id="un59-ncargas">1</span> carga(s) &middot; <span id="un59-nitens">1</span> produto(s) &middot; <b id="un59-pend">1</b> un. pendentes</span>
+        <span class="un-stat"><span id="un45-ncargas">1</span> carga(s) &middot; <span id="un45-nitens">1</span> produto(s) &middot; <b id="un45-pend">1</b> un. pendentes</span>
       </summary>
       <div class="un-body">
     <details class="carga-block">
       <summary>
         <span class="tw-open">&#9656;</span>
         <span class="carga-id">CARGA 20260901011</span>
-        <span class="carga-bar-wrap"><span class="carga-bar"><span id="ca60-bar" class="carga-bar-fill pill-crit" style="width:0%"></span></span></span>
-        <span class="carga-stat"><span id="ca60-npedidos">1</span> pedido(s) &middot; <span id="ca60-nprodutos">1</span> produto(s)</span>
-        <span class="carga-stat carga-stat-pend"><b id="ca60-pend">1</b> pendentes</span>
-        <span id="ca60-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-bar-wrap"><span class="carga-bar"><span id="ca46-bar" class="carga-bar-fill pill-crit" style="width:0%"></span></span></span>
+        <span class="carga-stat"><span id="ca46-npedidos">1</span> pedido(s) &middot; <span id="ca46-nprodutos">1</span> produto(s)</span>
+        <span class="carga-stat carga-stat-pend"><b id="ca46-pend">1</b> pendentes</span>
+        <span id="ca46-pill" class="pill pill-crit pill-compact">0%</span>
         <span class="carga-cidades">SAO RAIMUNDO NONATO/PI</span>
       </summary>
       <div class="carga-body">
@@ -1760,7 +1551,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <div class="pedido-head">
         <span class="pedido-tag">PEDIDO 76855</span>
         <span class="pedido-who">SUPERMERCADO PI KENO LTDA &middot; SAO RAIMUNDO NONATO/PI</span>
-        <span class="pedido-stat"><span id="pd61-nitens">1</span> item(ns) &middot; <b id="pd61-pend">1</b> un. pendentes</span>
+        <span class="pedido-stat"><span id="pd47-nitens">1</span> item(ns) &middot; <b id="pd47-pend">1</b> un. pendentes</span>
       </div>
       <table class="itens-table">
         <thead><tr><th>Produto</th><th>Feito&nbsp;/&nbsp;Necess&aacute;rio</th><th>Pendente</th><th>%</th><th>Marcar</th></tr></thead>
@@ -1768,12 +1559,13 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       data-necessario="1" data-feito="0" data-produto="154146 - MBC-3000X1200/04 - BANCA CENTRAL - AMEIXA NEGRA"
       data-dia="2026-09-18" data-op-nome="COLADEIRA" data-carga-num="20260901011" data-pedido-num="76855"
       data-un-nome="Móveis"
-      data-day="dy1" data-op="op58" data-un="un59" data-carga="ca60" data-pedido="pd61">
+      data-day="dy1" data-op="op44" data-un="un45" data-carga="ca46" data-pedido="pd47">
       <td class="c-produto">154146 - MBC-3000X1200/04 - BANCA CENTRAL - AMEIXA NEGRA</td>
       <td class="c-num">0<span class="slash">/</span>1</td>
       <td class="c-num c-pend"><span class="cell-pend">1</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="i58f8ca66c9e035d37a11"></span>
         <button type="button" class="mark-btn" data-key="i58f8ca66c9e035d37a11" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i58f8ca66c9e035d37a11" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i58f8ca66c9e035d37a11" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1789,9 +1581,9 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <div class="day-head">
         <div class="day-title"><span class="day-dow">SEG</span><span class="day-date">21/09/2026</span><span class="day-delta">em 3d</span></div>
         <div class="day-stats">
-          <span><span id="dy62-ncargas">2</span> carga(s)</span><span class="dot">&middot;</span>
-          <span><span id="dy62-nitens">31</span> produto(s) pendente(s)</span><span class="dot">&middot;</span>
-          <span class="day-stats-pend"><span id="dy62-pend">1144</span> un. pendentes no dia</span>
+          <span><span id="dy48-ncargas">2</span> carga(s)</span><span class="dot">&middot;</span>
+          <span><span id="dy48-nitens">31</span> produto(s) pendente(s)</span><span class="dot">&middot;</span>
+          <span class="day-stats-pend"><span id="dy48-pend">1144</span> un. pendentes no dia</span>
         </div>
       </div>
       <div class="day-body">
@@ -1800,25 +1592,25 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="tw-open">&#9656;</span>
         <span class="op-rank">01</span>
         <span class="op-name">OPERAÇÃO DE CONFERENCIA</span>
-        <span class="op-stat"><span id="op63-ncargas">2</span> carga(s) &middot; <span id="op63-nitens">7</span> produto(s)</span>
-        <span class="op-stat-pend"><span id="op63-pend">427</span> un. pendentes</span>
+        <span class="op-stat"><span id="op49-ncargas">2</span> carga(s) &middot; <span id="op49-nitens">7</span> produto(s)</span>
+        <span class="op-stat-pend"><span id="op49-pend">427</span> un. pendentes</span>
       </summary>
       <div class="op-body">
     <details class="un-block" open>
       <summary>
         <span class="tw-open">&#9662;</span>
         <span class="un-name">Metalúrgica</span>
-        <span class="un-stat"><span id="un64-ncargas">2</span> carga(s) &middot; <span id="un64-nitens">3</span> produto(s) &middot; <b id="un64-pend">85</b> un. pendentes</span>
+        <span class="un-stat"><span id="un50-ncargas">2</span> carga(s) &middot; <span id="un50-nitens">3</span> produto(s) &middot; <b id="un50-pend">85</b> un. pendentes</span>
       </summary>
       <div class="un-body">
     <details class="carga-block">
       <summary>
         <span class="tw-open">&#9656;</span>
         <span class="carga-id">CARGA 20260708014</span>
-        <span class="carga-bar-wrap"><span class="carga-bar"><span id="ca65-bar" class="carga-bar-fill pill-warn" style="width:17%"></span></span></span>
-        <span class="carga-stat"><span id="ca65-npedidos">1</span> pedido(s) &middot; <span id="ca65-nprodutos">1</span> produto(s)</span>
-        <span class="carga-stat carga-stat-pend"><b id="ca65-pend">78</b> pendentes</span>
-        <span id="ca65-pill" class="pill pill-warn pill-compact">17%</span>
+        <span class="carga-bar-wrap"><span class="carga-bar"><span id="ca51-bar" class="carga-bar-fill pill-warn" style="width:17%"></span></span></span>
+        <span class="carga-stat"><span id="ca51-npedidos">1</span> pedido(s) &middot; <span id="ca51-nprodutos">1</span> produto(s)</span>
+        <span class="carga-stat carga-stat-pend"><b id="ca51-pend">78</b> pendentes</span>
+        <span id="ca51-pill" class="pill pill-warn pill-compact">17%</span>
         <span class="carga-cidades">OTACILIO COSTA/SC</span>
       </summary>
       <div class="carga-body">
@@ -1826,7 +1618,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <div class="pedido-head">
         <span class="pedido-tag">PEDIDO 75092</span>
         <span class="pedido-who">GILSO TRISTAO DA CRUZ LTDA &middot; OTACILIO COSTA/SC</span>
-        <span class="pedido-stat"><span id="pd66-nitens">1</span> item(ns) &middot; <b id="pd66-pend">78</b> un. pendentes</span>
+        <span class="pedido-stat"><span id="pd52-nitens">1</span> item(ns) &middot; <b id="pd52-pend">78</b> un. pendentes</span>
       </div>
       <table class="itens-table">
         <thead><tr><th>Produto</th><th>Feito&nbsp;/&nbsp;Necess&aacute;rio</th><th>Pendente</th><th>%</th><th>Marcar</th></tr></thead>
@@ -1834,12 +1626,13 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       data-necessario="94" data-feito="16" data-produto="162044 - PERFIL CREMALHEIRA COLUNA PP PFDN 2045MM AMARELO"
       data-dia="2026-09-21" data-op-nome="OPERAÇÃO DE CONFERENCIA" data-carga-num="20260708014" data-pedido-num="75092"
       data-un-nome="Metalúrgica"
-      data-day="dy62" data-op="op63" data-un="un64" data-carga="ca65" data-pedido="pd66">
+      data-day="dy48" data-op="op49" data-un="un50" data-carga="ca51" data-pedido="pd52">
       <td class="c-produto">162044 - PERFIL CREMALHEIRA COLUNA PP PFDN 2045MM AMARELO</td>
       <td class="c-num">16<span class="slash">/</span>94</td>
       <td class="c-num c-pend"><span class="cell-pend">78</span></td>
       <td class="c-pill"><span class="pill pill-warn cell-pill">17%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="i8774427b39c2bce59aa9"></span>
         <button type="button" class="mark-btn" data-key="i8774427b39c2bce59aa9" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i8774427b39c2bce59aa9" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i8774427b39c2bce59aa9" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1852,10 +1645,10 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <summary>
         <span class="tw-open">&#9656;</span>
         <span class="carga-id">CARGA 20260811005</span>
-        <span class="carga-bar-wrap"><span class="carga-bar"><span id="ca67-bar" class="carga-bar-fill pill-crit" style="width:0%"></span></span></span>
-        <span class="carga-stat"><span id="ca67-npedidos">1</span> pedido(s) &middot; <span id="ca67-nprodutos">2</span> produto(s)</span>
-        <span class="carga-stat carga-stat-pend"><b id="ca67-pend">7</b> pendentes</span>
-        <span id="ca67-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-bar-wrap"><span class="carga-bar"><span id="ca53-bar" class="carga-bar-fill pill-crit" style="width:0%"></span></span></span>
+        <span class="carga-stat"><span id="ca53-npedidos">1</span> pedido(s) &middot; <span id="ca53-nprodutos">2</span> produto(s)</span>
+        <span class="carga-stat carga-stat-pend"><b id="ca53-pend">7</b> pendentes</span>
+        <span id="ca53-pill" class="pill pill-crit pill-compact">0%</span>
         <span class="carga-cidades">CACHOEIRINHA/RS</span>
       </summary>
       <div class="carga-body">
@@ -1863,7 +1656,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <div class="pedido-head">
         <span class="pedido-tag">PEDIDO 75958</span>
         <span class="pedido-who">BRANES MERCADO LTDA &middot; CACHOEIRINHA/RS</span>
-        <span class="pedido-stat"><span id="pd68-nitens">2</span> item(ns) &middot; <b id="pd68-pend">7</b> un. pendentes</span>
+        <span class="pedido-stat"><span id="pd54-nitens">2</span> item(ns) &middot; <b id="pd54-pend">7</b> un. pendentes</span>
       </div>
       <table class="itens-table">
         <thead><tr><th>Produto</th><th>Feito&nbsp;/&nbsp;Necess&aacute;rio</th><th>Pendente</th><th>%</th><th>Marcar</th></tr></thead>
@@ -1871,12 +1664,13 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       data-necessario="4" data-feito="0" data-produto="139797 - SUPORTE TUBO FRONTAL ADEGA BAT RACK 81 X 27 X 1,55MM PTO"
       data-dia="2026-09-21" data-op-nome="OPERAÇÃO DE CONFERENCIA" data-carga-num="20260811005" data-pedido-num="75958"
       data-un-nome="Metalúrgica"
-      data-day="dy62" data-op="op63" data-un="un64" data-carga="ca67" data-pedido="pd68">
+      data-day="dy48" data-op="op49" data-un="un50" data-carga="ca53" data-pedido="pd54">
       <td class="c-produto">139797 - SUPORTE TUBO FRONTAL ADEGA BAT RACK 81 X 27 X 1,55MM PTO</td>
       <td class="c-num">0<span class="slash">/</span>4</td>
       <td class="c-num c-pend"><span class="cell-pend">4</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="i66fd3bc964f5572f175b"></span>
         <button type="button" class="mark-btn" data-key="i66fd3bc964f5572f175b" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i66fd3bc964f5572f175b" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i66fd3bc964f5572f175b" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1885,12 +1679,13 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       data-necessario="3" data-feito="0" data-produto="58866 - GANCHEIRA DUPLA P25 960MM C/ 4 GANCHOS 35CM GRAFITE"
       data-dia="2026-09-21" data-op-nome="OPERAÇÃO DE CONFERENCIA" data-carga-num="20260811005" data-pedido-num="75958"
       data-un-nome="Metalúrgica"
-      data-day="dy62" data-op="op63" data-un="un64" data-carga="ca67" data-pedido="pd68">
+      data-day="dy48" data-op="op49" data-un="un50" data-carga="ca53" data-pedido="pd54">
       <td class="c-produto">58866 - GANCHEIRA DUPLA P25 960MM C/ 4 GANCHOS 35CM GRAFITE</td>
       <td class="c-num">0<span class="slash">/</span>3</td>
       <td class="c-num c-pend"><span class="cell-pend">3</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="ic6e010a7795eb2587119"></span>
         <button type="button" class="mark-btn" data-key="ic6e010a7795eb2587119" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="ic6e010a7795eb2587119" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="ic6e010a7795eb2587119" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1904,17 +1699,17 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <summary>
         <span class="tw-open">&#9662;</span>
         <span class="un-name">Porta Pallet</span>
-        <span class="un-stat"><span id="un69-ncargas">1</span> carga(s) &middot; <span id="un69-nitens">4</span> produto(s) &middot; <b id="un69-pend">342</b> un. pendentes</span>
+        <span class="un-stat"><span id="un55-ncargas">1</span> carga(s) &middot; <span id="un55-nitens">4</span> produto(s) &middot; <b id="un55-pend">342</b> un. pendentes</span>
       </summary>
       <div class="un-body">
     <details class="carga-block">
       <summary>
         <span class="tw-open">&#9656;</span>
         <span class="carga-id">CARGA 20260708014</span>
-        <span class="carga-bar-wrap"><span class="carga-bar"><span id="ca70-bar" class="carga-bar-fill pill-crit" style="width:0%"></span></span></span>
-        <span class="carga-stat"><span id="ca70-npedidos">1</span> pedido(s) &middot; <span id="ca70-nprodutos">4</span> produto(s)</span>
-        <span class="carga-stat carga-stat-pend"><b id="ca70-pend">342</b> pendentes</span>
-        <span id="ca70-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-bar-wrap"><span class="carga-bar"><span id="ca56-bar" class="carga-bar-fill pill-crit" style="width:0%"></span></span></span>
+        <span class="carga-stat"><span id="ca56-npedidos">1</span> pedido(s) &middot; <span id="ca56-nprodutos">4</span> produto(s)</span>
+        <span class="carga-stat carga-stat-pend"><b id="ca56-pend">342</b> pendentes</span>
+        <span id="ca56-pill" class="pill pill-crit pill-compact">0%</span>
         <span class="carga-cidades">OTACILIO COSTA/SC</span>
       </summary>
       <div class="carga-body">
@@ -1922,7 +1717,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <div class="pedido-head">
         <span class="pedido-tag">PEDIDO 75092</span>
         <span class="pedido-who">GILSO TRISTAO DA CRUZ LTDA &middot; OTACILIO COSTA/SC</span>
-        <span class="pedido-stat"><span id="pd71-nitens">4</span> item(ns) &middot; <b id="pd71-pend">342</b> un. pendentes</span>
+        <span class="pedido-stat"><span id="pd57-nitens">4</span> item(ns) &middot; <b id="pd57-pend">342</b> un. pendentes</span>
       </div>
       <table class="itens-table">
         <thead><tr><th>Produto</th><th>Feito&nbsp;/&nbsp;Necess&aacute;rio</th><th>Pendente</th><th>%</th><th>Marcar</th></tr></thead>
@@ -1930,12 +1725,13 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       data-necessario="94" data-feito="0" data-produto="162045 - SAPATA PFDN 80 X 60 MONTANTE AMARELO"
       data-dia="2026-09-21" data-op-nome="OPERAÇÃO DE CONFERENCIA" data-carga-num="20260708014" data-pedido-num="75092"
       data-un-nome="Porta Pallet"
-      data-day="dy62" data-op="op63" data-un="un69" data-carga="ca70" data-pedido="pd71">
+      data-day="dy48" data-op="op49" data-un="un55" data-carga="ca56" data-pedido="pd57">
       <td class="c-produto">162045 - SAPATA PFDN 80 X 60 MONTANTE AMARELO</td>
       <td class="c-num">0<span class="slash">/</span>94</td>
       <td class="c-num c-pend"><span class="cell-pend">94</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="i0dc156638736b53015ed"></span>
         <button type="button" class="mark-btn" data-key="i0dc156638736b53015ed" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i0dc156638736b53015ed" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i0dc156638736b53015ed" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1944,12 +1740,13 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       data-necessario="56" data-feito="0" data-produto="162997 - BANDEJA BASE FRONTAL RETA 1F PFDN-STB PECA ESQUERDA PARA MONTATE 80X60"
       data-dia="2026-09-21" data-op-nome="OPERAÇÃO DE CONFERENCIA" data-carga-num="20260708014" data-pedido-num="75092"
       data-un-nome="Porta Pallet"
-      data-day="dy62" data-op="op63" data-un="un69" data-carga="ca70" data-pedido="pd71">
+      data-day="dy48" data-op="op49" data-un="un55" data-carga="ca56" data-pedido="pd57">
       <td class="c-produto">162997 - BANDEJA BASE FRONTAL RETA 1F PFDN-STB PECA ESQUERDA PARA MONTATE 80X60</td>
       <td class="c-num">0<span class="slash">/</span>56</td>
       <td class="c-num c-pend"><span class="cell-pend">56</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="ib6cce624a09cda9f87d3"></span>
         <button type="button" class="mark-btn" data-key="ib6cce624a09cda9f87d3" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="ib6cce624a09cda9f87d3" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="ib6cce624a09cda9f87d3" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1958,12 +1755,13 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       data-necessario="56" data-feito="0" data-produto="162998 - BANDEJA BASE FRONTAL RETA 1F PFDN-STB PECA DIREITA PARA MONTATE 80X60"
       data-dia="2026-09-21" data-op-nome="OPERAÇÃO DE CONFERENCIA" data-carga-num="20260708014" data-pedido-num="75092"
       data-un-nome="Porta Pallet"
-      data-day="dy62" data-op="op63" data-un="un69" data-carga="ca70" data-pedido="pd71">
+      data-day="dy48" data-op="op49" data-un="un55" data-carga="ca56" data-pedido="pd57">
       <td class="c-produto">162998 - BANDEJA BASE FRONTAL RETA 1F PFDN-STB PECA DIREITA PARA MONTATE 80X60</td>
       <td class="c-num">0<span class="slash">/</span>56</td>
       <td class="c-num c-pend"><span class="cell-pend">56</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="i95b13a56db221907f048"></span>
         <button type="button" class="mark-btn" data-key="i95b13a56db221907f048" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i95b13a56db221907f048" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i95b13a56db221907f048" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1972,12 +1770,13 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       data-necessario="136" data-feito="0" data-produto="20236 - BLANK 2335 X162 X 2MM REFORCO LONGARINA E120"
       data-dia="2026-09-21" data-op-nome="OPERAÇÃO DE CONFERENCIA" data-carga-num="20260708014" data-pedido-num="75092"
       data-un-nome="Porta Pallet"
-      data-day="dy62" data-op="op63" data-un="un69" data-carga="ca70" data-pedido="pd71">
+      data-day="dy48" data-op="op49" data-un="un55" data-carga="ca56" data-pedido="pd57">
       <td class="c-produto">20236 - BLANK 2335 X162 X 2MM REFORCO LONGARINA E120</td>
       <td class="c-num">0<span class="slash">/</span>136</td>
       <td class="c-num c-pend"><span class="cell-pend">136</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="ied5bdde42cf8b0b52374"></span>
         <button type="button" class="mark-btn" data-key="ied5bdde42cf8b0b52374" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="ied5bdde42cf8b0b52374" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="ied5bdde42cf8b0b52374" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -1993,25 +1792,25 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="tw-open">&#9656;</span>
         <span class="op-rank">02</span>
         <span class="op-name">SEPARAÇÃO</span>
-        <span class="op-stat"><span id="op72-ncargas">2</span> carga(s) &middot; <span id="op72-nitens">17</span> produto(s)</span>
-        <span class="op-stat-pend"><span id="op72-pend">425</span> un. pendentes</span>
+        <span class="op-stat"><span id="op58-ncargas">2</span> carga(s) &middot; <span id="op58-nitens">17</span> produto(s)</span>
+        <span class="op-stat-pend"><span id="op58-pend">425</span> un. pendentes</span>
       </summary>
       <div class="op-body">
     <details class="un-block" open>
       <summary>
         <span class="tw-open">&#9662;</span>
         <span class="un-name">Metalúrgica</span>
-        <span class="un-stat"><span id="un73-ncargas">2</span> carga(s) &middot; <span id="un73-nitens">14</span> produto(s) &middot; <b id="un73-pend">219</b> un. pendentes</span>
+        <span class="un-stat"><span id="un59-ncargas">2</span> carga(s) &middot; <span id="un59-nitens">14</span> produto(s) &middot; <b id="un59-pend">219</b> un. pendentes</span>
       </summary>
       <div class="un-body">
     <details class="carga-block">
       <summary>
         <span class="tw-open">&#9656;</span>
         <span class="carga-id">CARGA 20260811005</span>
-        <span class="carga-bar-wrap"><span class="carga-bar"><span id="ca74-bar" class="carga-bar-fill pill-crit" style="width:0%"></span></span></span>
-        <span class="carga-stat"><span id="ca74-npedidos">1</span> pedido(s) &middot; <span id="ca74-nprodutos">13</span> produto(s)</span>
-        <span class="carga-stat carga-stat-pend"><b id="ca74-pend">141</b> pendentes</span>
-        <span id="ca74-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-bar-wrap"><span class="carga-bar"><span id="ca60-bar" class="carga-bar-fill pill-crit" style="width:0%"></span></span></span>
+        <span class="carga-stat"><span id="ca60-npedidos">1</span> pedido(s) &middot; <span id="ca60-nprodutos">13</span> produto(s)</span>
+        <span class="carga-stat carga-stat-pend"><b id="ca60-pend">141</b> pendentes</span>
+        <span id="ca60-pill" class="pill pill-crit pill-compact">0%</span>
         <span class="carga-cidades">CACHOEIRINHA/RS</span>
       </summary>
       <div class="carga-body">
@@ -2019,7 +1818,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <div class="pedido-head">
         <span class="pedido-tag">PEDIDO 75958</span>
         <span class="pedido-who">BRANES MERCADO LTDA &middot; CACHOEIRINHA/RS</span>
-        <span class="pedido-stat"><span id="pd75-nitens">13</span> item(ns) &middot; <b id="pd75-pend">141</b> un. pendentes</span>
+        <span class="pedido-stat"><span id="pd61-nitens">13</span> item(ns) &middot; <b id="pd61-pend">141</b> un. pendentes</span>
       </div>
       <table class="itens-table">
         <thead><tr><th>Produto</th><th>Feito&nbsp;/&nbsp;Necess&aacute;rio</th><th>Pendente</th><th>%</th><th>Marcar</th></tr></thead>
@@ -2027,12 +1826,13 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       data-necessario="2" data-feito="0" data-produto="132079 - TUBO 30X30 FRONTAL ADEGA BAT RACK ESQUERDO - PTO"
       data-dia="2026-09-21" data-op-nome="SEPARAÇÃO" data-carga-num="20260811005" data-pedido-num="75958"
       data-un-nome="Metalúrgica"
-      data-day="dy62" data-op="op72" data-un="un73" data-carga="ca74" data-pedido="pd75">
+      data-day="dy48" data-op="op58" data-un="un59" data-carga="ca60" data-pedido="pd61">
       <td class="c-produto">132079 - TUBO 30X30 FRONTAL ADEGA BAT RACK ESQUERDO - PTO</td>
       <td class="c-num">0<span class="slash">/</span>2</td>
       <td class="c-num c-pend"><span class="cell-pend">2</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="i5d7b62e6472d1eea8590"></span>
         <button type="button" class="mark-btn" data-key="i5d7b62e6472d1eea8590" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i5d7b62e6472d1eea8590" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i5d7b62e6472d1eea8590" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -2041,12 +1841,13 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       data-necessario="10" data-feito="0" data-produto="132230 - COLUNA CREMALHEIRA  P25 KIT MARCENARIA 2040MM- PTO"
       data-dia="2026-09-21" data-op-nome="SEPARAÇÃO" data-carga-num="20260811005" data-pedido-num="75958"
       data-un-nome="Metalúrgica"
-      data-day="dy62" data-op="op72" data-un="un73" data-carga="ca74" data-pedido="pd75">
+      data-day="dy48" data-op="op58" data-un="un59" data-carga="ca60" data-pedido="pd61">
       <td class="c-produto">132230 - COLUNA CREMALHEIRA  P25 KIT MARCENARIA 2040MM- PTO</td>
       <td class="c-num">0<span class="slash">/</span>10</td>
       <td class="c-num c-pend"><span class="cell-pend">10</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="iff7b74cf39be0c40946e"></span>
         <button type="button" class="mark-btn" data-key="iff7b74cf39be0c40946e" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="iff7b74cf39be0c40946e" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="iff7b74cf39be0c40946e" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -2055,12 +1856,13 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       data-necessario="2" data-feito="0" data-produto="139592 - TUBO 30X30 FRONTAL ADEGA BAT RACK DIREITO - PTO"
       data-dia="2026-09-21" data-op-nome="SEPARAÇÃO" data-carga-num="20260811005" data-pedido-num="75958"
       data-un-nome="Metalúrgica"
-      data-day="dy62" data-op="op72" data-un="un73" data-carga="ca74" data-pedido="pd75">
+      data-day="dy48" data-op="op58" data-un="un59" data-carga="ca60" data-pedido="pd61">
       <td class="c-produto">139592 - TUBO 30X30 FRONTAL ADEGA BAT RACK DIREITO - PTO</td>
       <td class="c-num">0<span class="slash">/</span>2</td>
       <td class="c-num c-pend"><span class="cell-pend">2</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="i3a1205349e4b257eaccc"></span>
         <button type="button" class="mark-btn" data-key="i3a1205349e4b257eaccc" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i3a1205349e4b257eaccc" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i3a1205349e4b257eaccc" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -2069,12 +1871,13 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       data-necessario="4" data-feito="0" data-produto="139797 - SUPORTE TUBO FRONTAL ADEGA BAT RACK 81 X 27 X 1,55MM PTO"
       data-dia="2026-09-21" data-op-nome="SEPARAÇÃO" data-carga-num="20260811005" data-pedido-num="75958"
       data-un-nome="Metalúrgica"
-      data-day="dy62" data-op="op72" data-un="un73" data-carga="ca74" data-pedido="pd75">
+      data-day="dy48" data-op="op58" data-un="un59" data-carga="ca60" data-pedido="pd61">
       <td class="c-produto">139797 - SUPORTE TUBO FRONTAL ADEGA BAT RACK 81 X 27 X 1,55MM PTO</td>
       <td class="c-num">0<span class="slash">/</span>4</td>
       <td class="c-num c-pend"><span class="cell-pend">4</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="i08539a0ddde38e7fcbac"></span>
         <button type="button" class="mark-btn" data-key="i08539a0ddde38e7fcbac" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i08539a0ddde38e7fcbac" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i08539a0ddde38e7fcbac" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -2083,12 +1886,13 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       data-necessario="8" data-feito="0" data-produto="148119 - CHAPA BASE MBC-07 1142MM - GRAFITE"
       data-dia="2026-09-21" data-op-nome="SEPARAÇÃO" data-carga-num="20260811005" data-pedido-num="75958"
       data-un-nome="Metalúrgica"
-      data-day="dy62" data-op="op72" data-un="un73" data-carga="ca74" data-pedido="pd75">
+      data-day="dy48" data-op="op58" data-un="un59" data-carga="ca60" data-pedido="pd61">
       <td class="c-produto">148119 - CHAPA BASE MBC-07 1142MM - GRAFITE</td>
       <td class="c-num">0<span class="slash">/</span>8</td>
       <td class="c-num c-pend"><span class="cell-pend">8</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="i74d0d7cd0467ebb4e003"></span>
         <button type="button" class="mark-btn" data-key="i74d0d7cd0467ebb4e003" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i74d0d7cd0467ebb4e003" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i74d0d7cd0467ebb4e003" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -2097,12 +1901,13 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       data-necessario="8" data-feito="0" data-produto="148121 - CHAPA SUPERIOR MBC-07 1142MM - GRAFITE"
       data-dia="2026-09-21" data-op-nome="SEPARAÇÃO" data-carga-num="20260811005" data-pedido-num="75958"
       data-un-nome="Metalúrgica"
-      data-day="dy62" data-op="op72" data-un="un73" data-carga="ca74" data-pedido="pd75">
+      data-day="dy48" data-op="op58" data-un="un59" data-carga="ca60" data-pedido="pd61">
       <td class="c-produto">148121 - CHAPA SUPERIOR MBC-07 1142MM - GRAFITE</td>
       <td class="c-num">0<span class="slash">/</span>8</td>
       <td class="c-num c-pend"><span class="cell-pend">8</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="i822536f7c8eaeebafd53"></span>
         <button type="button" class="mark-btn" data-key="i822536f7c8eaeebafd53" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i822536f7c8eaeebafd53" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i822536f7c8eaeebafd53" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -2111,12 +1916,13 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       data-necessario="42" data-feito="0" data-produto="149954 - APARADOR CHAPA MOD.440MM - PTO"
       data-dia="2026-09-21" data-op-nome="SEPARAÇÃO" data-carga-num="20260811005" data-pedido-num="75958"
       data-un-nome="Metalúrgica"
-      data-day="dy62" data-op="op72" data-un="un73" data-carga="ca74" data-pedido="pd75">
+      data-day="dy48" data-op="op58" data-un="un59" data-carga="ca60" data-pedido="pd61">
       <td class="c-produto">149954 - APARADOR CHAPA MOD.440MM - PTO</td>
       <td class="c-num">0<span class="slash">/</span>42</td>
       <td class="c-num c-pend"><span class="cell-pend">42</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="i7e1c34fb2c47ba4080b9"></span>
         <button type="button" class="mark-btn" data-key="i7e1c34fb2c47ba4080b9" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i7e1c34fb2c47ba4080b9" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i7e1c34fb2c47ba4080b9" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -2125,12 +1931,13 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       data-necessario="8" data-feito="0" data-produto="152036 - CHAPA BASE MBC-07 877MM - GRAFITE"
       data-dia="2026-09-21" data-op-nome="SEPARAÇÃO" data-carga-num="20260811005" data-pedido-num="75958"
       data-un-nome="Metalúrgica"
-      data-day="dy62" data-op="op72" data-un="un73" data-carga="ca74" data-pedido="pd75">
+      data-day="dy48" data-op="op58" data-un="un59" data-carga="ca60" data-pedido="pd61">
       <td class="c-produto">152036 - CHAPA BASE MBC-07 877MM - GRAFITE</td>
       <td class="c-num">0<span class="slash">/</span>8</td>
       <td class="c-num c-pend"><span class="cell-pend">8</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="i155c9475d9a13b2fc058"></span>
         <button type="button" class="mark-btn" data-key="i155c9475d9a13b2fc058" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i155c9475d9a13b2fc058" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i155c9475d9a13b2fc058" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -2139,12 +1946,13 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       data-necessario="8" data-feito="0" data-produto="152037 - CHAPA SUPERIOR MBC-07 877MM (MOD.1200x1200) - GRAFITE"
       data-dia="2026-09-21" data-op-nome="SEPARAÇÃO" data-carga-num="20260811005" data-pedido-num="75958"
       data-un-nome="Metalúrgica"
-      data-day="dy62" data-op="op72" data-un="un73" data-carga="ca74" data-pedido="pd75">
+      data-day="dy48" data-op="op58" data-un="un59" data-carga="ca60" data-pedido="pd61">
       <td class="c-produto">152037 - CHAPA SUPERIOR MBC-07 877MM (MOD.1200x1200) - GRAFITE</td>
       <td class="c-num">0<span class="slash">/</span>8</td>
       <td class="c-num c-pend"><span class="cell-pend">8</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="ic7e0c1bdcbb4fd7aa972"></span>
         <button type="button" class="mark-btn" data-key="ic7e0c1bdcbb4fd7aa972" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="ic7e0c1bdcbb4fd7aa972" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="ic7e0c1bdcbb4fd7aa972" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -2153,12 +1961,13 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       data-necessario="2" data-feito="0" data-produto="158409 - TRAVESSA SUPERIOR 02 MMEPC-RV MARCENARIA 675X153MM MOD.675 - PTO"
       data-dia="2026-09-21" data-op-nome="SEPARAÇÃO" data-carga-num="20260811005" data-pedido-num="75958"
       data-un-nome="Metalúrgica"
-      data-day="dy62" data-op="op72" data-un="un73" data-carga="ca74" data-pedido="pd75">
+      data-day="dy48" data-op="op58" data-un="un59" data-carga="ca60" data-pedido="pd61">
       <td class="c-produto">158409 - TRAVESSA SUPERIOR 02 MMEPC-RV MARCENARIA 675X153MM MOD.675 - PTO</td>
       <td class="c-num">0<span class="slash">/</span>2</td>
       <td class="c-num c-pend"><span class="cell-pend">2</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="ibfb48d5d291ad28518f7"></span>
         <button type="button" class="mark-btn" data-key="ibfb48d5d291ad28518f7" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="ibfb48d5d291ad28518f7" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="ibfb48d5d291ad28518f7" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -2167,12 +1976,13 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       data-necessario="38" data-feito="0" data-produto="159176 - TRAVESSA APOIO SUPORTE PRATELEIRA MARCENARIA DSM 02 952X20X1,95 MOD 1000 MM PTO"
       data-dia="2026-09-21" data-op-nome="SEPARAÇÃO" data-carga-num="20260811005" data-pedido-num="75958"
       data-un-nome="Metalúrgica"
-      data-day="dy62" data-op="op72" data-un="un73" data-carga="ca74" data-pedido="pd75">
+      data-day="dy48" data-op="op58" data-un="un59" data-carga="ca60" data-pedido="pd61">
       <td class="c-produto">159176 - TRAVESSA APOIO SUPORTE PRATELEIRA MARCENARIA DSM 02 952X20X1,95 MOD 1000 MM PTO</td>
       <td class="c-num">0<span class="slash">/</span>38</td>
       <td class="c-num c-pend"><span class="cell-pend">38</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="i13579aa0270d3bc95bde"></span>
         <button type="button" class="mark-btn" data-key="i13579aa0270d3bc95bde" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i13579aa0270d3bc95bde" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i13579aa0270d3bc95bde" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -2181,12 +1991,13 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       data-necessario="6" data-feito="0" data-produto="58865 - BARRA DE GANCHEIRA P25 960 (SOMENTE BARRA) GRAFITE"
       data-dia="2026-09-21" data-op-nome="SEPARAÇÃO" data-carga-num="20260811005" data-pedido-num="75958"
       data-un-nome="Metalúrgica"
-      data-day="dy62" data-op="op72" data-un="un73" data-carga="ca74" data-pedido="pd75">
+      data-day="dy48" data-op="op58" data-un="un59" data-carga="ca60" data-pedido="pd61">
       <td class="c-produto">58865 - BARRA DE GANCHEIRA P25 960 (SOMENTE BARRA) GRAFITE</td>
       <td class="c-num">0<span class="slash">/</span>6</td>
       <td class="c-num c-pend"><span class="cell-pend">6</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="idb105d24d831d3b60e39"></span>
         <button type="button" class="mark-btn" data-key="idb105d24d831d3b60e39" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="idb105d24d831d3b60e39" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="idb105d24d831d3b60e39" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -2195,12 +2006,13 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       data-necessario="3" data-feito="0" data-produto="58866 - GANCHEIRA DUPLA P25 960MM C/ 4 GANCHOS 35CM GRAFITE"
       data-dia="2026-09-21" data-op-nome="SEPARAÇÃO" data-carga-num="20260811005" data-pedido-num="75958"
       data-un-nome="Metalúrgica"
-      data-day="dy62" data-op="op72" data-un="un73" data-carga="ca74" data-pedido="pd75">
+      data-day="dy48" data-op="op58" data-un="un59" data-carga="ca60" data-pedido="pd61">
       <td class="c-produto">58866 - GANCHEIRA DUPLA P25 960MM C/ 4 GANCHOS 35CM GRAFITE</td>
       <td class="c-num">0<span class="slash">/</span>3</td>
       <td class="c-num c-pend"><span class="cell-pend">3</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="iaca2b3ff5ef2810cf2da"></span>
         <button type="button" class="mark-btn" data-key="iaca2b3ff5ef2810cf2da" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="iaca2b3ff5ef2810cf2da" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="iaca2b3ff5ef2810cf2da" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -2213,10 +2025,10 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <summary>
         <span class="tw-open">&#9656;</span>
         <span class="carga-id">CARGA 20260708014</span>
-        <span class="carga-bar-wrap"><span class="carga-bar"><span id="ca76-bar" class="carga-bar-fill pill-warn" style="width:17%"></span></span></span>
-        <span class="carga-stat"><span id="ca76-npedidos">1</span> pedido(s) &middot; <span id="ca76-nprodutos">1</span> produto(s)</span>
-        <span class="carga-stat carga-stat-pend"><b id="ca76-pend">78</b> pendentes</span>
-        <span id="ca76-pill" class="pill pill-warn pill-compact">17%</span>
+        <span class="carga-bar-wrap"><span class="carga-bar"><span id="ca62-bar" class="carga-bar-fill pill-warn" style="width:17%"></span></span></span>
+        <span class="carga-stat"><span id="ca62-npedidos">1</span> pedido(s) &middot; <span id="ca62-nprodutos">1</span> produto(s)</span>
+        <span class="carga-stat carga-stat-pend"><b id="ca62-pend">78</b> pendentes</span>
+        <span id="ca62-pill" class="pill pill-warn pill-compact">17%</span>
         <span class="carga-cidades">OTACILIO COSTA/SC</span>
       </summary>
       <div class="carga-body">
@@ -2224,7 +2036,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <div class="pedido-head">
         <span class="pedido-tag">PEDIDO 75092</span>
         <span class="pedido-who">GILSO TRISTAO DA CRUZ LTDA &middot; OTACILIO COSTA/SC</span>
-        <span class="pedido-stat"><span id="pd77-nitens">1</span> item(ns) &middot; <b id="pd77-pend">78</b> un. pendentes</span>
+        <span class="pedido-stat"><span id="pd63-nitens">1</span> item(ns) &middot; <b id="pd63-pend">78</b> un. pendentes</span>
       </div>
       <table class="itens-table">
         <thead><tr><th>Produto</th><th>Feito&nbsp;/&nbsp;Necess&aacute;rio</th><th>Pendente</th><th>%</th><th>Marcar</th></tr></thead>
@@ -2232,12 +2044,13 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       data-necessario="94" data-feito="16" data-produto="162044 - PERFIL CREMALHEIRA COLUNA PP PFDN 2045MM AMARELO"
       data-dia="2026-09-21" data-op-nome="SEPARAÇÃO" data-carga-num="20260708014" data-pedido-num="75092"
       data-un-nome="Metalúrgica"
-      data-day="dy62" data-op="op72" data-un="un73" data-carga="ca76" data-pedido="pd77">
+      data-day="dy48" data-op="op58" data-un="un59" data-carga="ca62" data-pedido="pd63">
       <td class="c-produto">162044 - PERFIL CREMALHEIRA COLUNA PP PFDN 2045MM AMARELO</td>
       <td class="c-num">16<span class="slash">/</span>94</td>
       <td class="c-num c-pend"><span class="cell-pend">78</span></td>
       <td class="c-pill"><span class="pill pill-warn cell-pill">17%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="i6f422ef0657c55614f83"></span>
         <button type="button" class="mark-btn" data-key="i6f422ef0657c55614f83" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i6f422ef0657c55614f83" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i6f422ef0657c55614f83" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -2251,17 +2064,17 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <summary>
         <span class="tw-open">&#9662;</span>
         <span class="un-name">Porta Pallet</span>
-        <span class="un-stat"><span id="un78-ncargas">1</span> carga(s) &middot; <span id="un78-nitens">3</span> produto(s) &middot; <b id="un78-pend">206</b> un. pendentes</span>
+        <span class="un-stat"><span id="un64-ncargas">1</span> carga(s) &middot; <span id="un64-nitens">3</span> produto(s) &middot; <b id="un64-pend">206</b> un. pendentes</span>
       </summary>
       <div class="un-body">
     <details class="carga-block">
       <summary>
         <span class="tw-open">&#9656;</span>
         <span class="carga-id">CARGA 20260708014</span>
-        <span class="carga-bar-wrap"><span class="carga-bar"><span id="ca79-bar" class="carga-bar-fill pill-crit" style="width:0%"></span></span></span>
-        <span class="carga-stat"><span id="ca79-npedidos">1</span> pedido(s) &middot; <span id="ca79-nprodutos">3</span> produto(s)</span>
-        <span class="carga-stat carga-stat-pend"><b id="ca79-pend">206</b> pendentes</span>
-        <span id="ca79-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-bar-wrap"><span class="carga-bar"><span id="ca65-bar" class="carga-bar-fill pill-crit" style="width:0%"></span></span></span>
+        <span class="carga-stat"><span id="ca65-npedidos">1</span> pedido(s) &middot; <span id="ca65-nprodutos">3</span> produto(s)</span>
+        <span class="carga-stat carga-stat-pend"><b id="ca65-pend">206</b> pendentes</span>
+        <span id="ca65-pill" class="pill pill-crit pill-compact">0%</span>
         <span class="carga-cidades">OTACILIO COSTA/SC</span>
       </summary>
       <div class="carga-body">
@@ -2269,7 +2082,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <div class="pedido-head">
         <span class="pedido-tag">PEDIDO 75092</span>
         <span class="pedido-who">GILSO TRISTAO DA CRUZ LTDA &middot; OTACILIO COSTA/SC</span>
-        <span class="pedido-stat"><span id="pd80-nitens">3</span> item(ns) &middot; <b id="pd80-pend">206</b> un. pendentes</span>
+        <span class="pedido-stat"><span id="pd66-nitens">3</span> item(ns) &middot; <b id="pd66-pend">206</b> un. pendentes</span>
       </div>
       <table class="itens-table">
         <thead><tr><th>Produto</th><th>Feito&nbsp;/&nbsp;Necess&aacute;rio</th><th>Pendente</th><th>%</th><th>Marcar</th></tr></thead>
@@ -2277,12 +2090,13 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       data-necessario="94" data-feito="0" data-produto="162045 - SAPATA PFDN 80 X 60 MONTANTE AMARELO"
       data-dia="2026-09-21" data-op-nome="SEPARAÇÃO" data-carga-num="20260708014" data-pedido-num="75092"
       data-un-nome="Porta Pallet"
-      data-day="dy62" data-op="op72" data-un="un78" data-carga="ca79" data-pedido="pd80">
+      data-day="dy48" data-op="op58" data-un="un64" data-carga="ca65" data-pedido="pd66">
       <td class="c-produto">162045 - SAPATA PFDN 80 X 60 MONTANTE AMARELO</td>
       <td class="c-num">0<span class="slash">/</span>94</td>
       <td class="c-num c-pend"><span class="cell-pend">94</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="i35e49f283f5987ddf1a5"></span>
         <button type="button" class="mark-btn" data-key="i35e49f283f5987ddf1a5" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i35e49f283f5987ddf1a5" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i35e49f283f5987ddf1a5" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -2291,12 +2105,13 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       data-necessario="56" data-feito="0" data-produto="163014 - BANDEJA BASE FRONTAL RETA 1F PFDN-STB PECA ESQUERDA PARA MONTATE 80X60 - BCO"
       data-dia="2026-09-21" data-op-nome="SEPARAÇÃO" data-carga-num="20260708014" data-pedido-num="75092"
       data-un-nome="Porta Pallet"
-      data-day="dy62" data-op="op72" data-un="un78" data-carga="ca79" data-pedido="pd80">
+      data-day="dy48" data-op="op58" data-un="un64" data-carga="ca65" data-pedido="pd66">
       <td class="c-produto">163014 - BANDEJA BASE FRONTAL RETA 1F PFDN-STB PECA ESQUERDA PARA MONTATE 80X60 - BCO</td>
       <td class="c-num">0<span class="slash">/</span>56</td>
       <td class="c-num c-pend"><span class="cell-pend">56</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="id41179e007748962312e"></span>
         <button type="button" class="mark-btn" data-key="id41179e007748962312e" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="id41179e007748962312e" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="id41179e007748962312e" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -2305,12 +2120,13 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       data-necessario="56" data-feito="0" data-produto="163016 - BANDEJA BASE FRONTAL RETA 1F PFDN-STB PECA DIREITA PARA MONTATE 80X60 - BCO"
       data-dia="2026-09-21" data-op-nome="SEPARAÇÃO" data-carga-num="20260708014" data-pedido-num="75092"
       data-un-nome="Porta Pallet"
-      data-day="dy62" data-op="op72" data-un="un78" data-carga="ca79" data-pedido="pd80">
+      data-day="dy48" data-op="op58" data-un="un64" data-carga="ca65" data-pedido="pd66">
       <td class="c-produto">163016 - BANDEJA BASE FRONTAL RETA 1F PFDN-STB PECA DIREITA PARA MONTATE 80X60 - BCO</td>
       <td class="c-num">0<span class="slash">/</span>56</td>
       <td class="c-num c-pend"><span class="cell-pend">56</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="ic9b2bee4b98bd96e527b"></span>
         <button type="button" class="mark-btn" data-key="ic9b2bee4b98bd96e527b" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="ic9b2bee4b98bd96e527b" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="ic9b2bee4b98bd96e527b" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -2326,25 +2142,25 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="tw-open">&#9656;</span>
         <span class="op-rank">03</span>
         <span class="op-name">OPERAÇÃO DE PINTURA</span>
-        <span class="op-stat"><span id="op81-ncargas">2</span> carga(s) &middot; <span id="op81-nitens">6</span> produto(s)</span>
-        <span class="op-stat-pend"><span id="op81-pend">291</span> un. pendentes</span>
+        <span class="op-stat"><span id="op67-ncargas">2</span> carga(s) &middot; <span id="op67-nitens">6</span> produto(s)</span>
+        <span class="op-stat-pend"><span id="op67-pend">291</span> un. pendentes</span>
       </summary>
       <div class="op-body">
     <details class="un-block" open>
       <summary>
         <span class="tw-open">&#9662;</span>
         <span class="un-name">Metalúrgica</span>
-        <span class="un-stat"><span id="un82-ncargas">2</span> carga(s) &middot; <span id="un82-nitens">3</span> produto(s) &middot; <b id="un82-pend">85</b> un. pendentes</span>
+        <span class="un-stat"><span id="un68-ncargas">2</span> carga(s) &middot; <span id="un68-nitens">3</span> produto(s) &middot; <b id="un68-pend">85</b> un. pendentes</span>
       </summary>
       <div class="un-body">
     <details class="carga-block">
       <summary>
         <span class="tw-open">&#9656;</span>
         <span class="carga-id">CARGA 20260708014</span>
-        <span class="carga-bar-wrap"><span class="carga-bar"><span id="ca83-bar" class="carga-bar-fill pill-warn" style="width:17%"></span></span></span>
-        <span class="carga-stat"><span id="ca83-npedidos">1</span> pedido(s) &middot; <span id="ca83-nprodutos">1</span> produto(s)</span>
-        <span class="carga-stat carga-stat-pend"><b id="ca83-pend">78</b> pendentes</span>
-        <span id="ca83-pill" class="pill pill-warn pill-compact">17%</span>
+        <span class="carga-bar-wrap"><span class="carga-bar"><span id="ca69-bar" class="carga-bar-fill pill-warn" style="width:17%"></span></span></span>
+        <span class="carga-stat"><span id="ca69-npedidos">1</span> pedido(s) &middot; <span id="ca69-nprodutos">1</span> produto(s)</span>
+        <span class="carga-stat carga-stat-pend"><b id="ca69-pend">78</b> pendentes</span>
+        <span id="ca69-pill" class="pill pill-warn pill-compact">17%</span>
         <span class="carga-cidades">OTACILIO COSTA/SC</span>
       </summary>
       <div class="carga-body">
@@ -2352,7 +2168,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <div class="pedido-head">
         <span class="pedido-tag">PEDIDO 75092</span>
         <span class="pedido-who">GILSO TRISTAO DA CRUZ LTDA &middot; OTACILIO COSTA/SC</span>
-        <span class="pedido-stat"><span id="pd84-nitens">1</span> item(ns) &middot; <b id="pd84-pend">78</b> un. pendentes</span>
+        <span class="pedido-stat"><span id="pd70-nitens">1</span> item(ns) &middot; <b id="pd70-pend">78</b> un. pendentes</span>
       </div>
       <table class="itens-table">
         <thead><tr><th>Produto</th><th>Feito&nbsp;/&nbsp;Necess&aacute;rio</th><th>Pendente</th><th>%</th><th>Marcar</th></tr></thead>
@@ -2360,12 +2176,13 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       data-necessario="94" data-feito="16" data-produto="162044 - PERFIL CREMALHEIRA COLUNA PP PFDN 2045MM AMARELO"
       data-dia="2026-09-21" data-op-nome="OPERAÇÃO DE PINTURA" data-carga-num="20260708014" data-pedido-num="75092"
       data-un-nome="Metalúrgica"
-      data-day="dy62" data-op="op81" data-un="un82" data-carga="ca83" data-pedido="pd84">
+      data-day="dy48" data-op="op67" data-un="un68" data-carga="ca69" data-pedido="pd70">
       <td class="c-produto">162044 - PERFIL CREMALHEIRA COLUNA PP PFDN 2045MM AMARELO</td>
       <td class="c-num">16<span class="slash">/</span>94</td>
       <td class="c-num c-pend"><span class="cell-pend">78</span></td>
       <td class="c-pill"><span class="pill pill-warn cell-pill">17%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="ica6482ac51f8bfd35eb3"></span>
         <button type="button" class="mark-btn" data-key="ica6482ac51f8bfd35eb3" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="ica6482ac51f8bfd35eb3" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="ica6482ac51f8bfd35eb3" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -2378,10 +2195,10 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <summary>
         <span class="tw-open">&#9656;</span>
         <span class="carga-id">CARGA 20260811005</span>
-        <span class="carga-bar-wrap"><span class="carga-bar"><span id="ca85-bar" class="carga-bar-fill pill-crit" style="width:0%"></span></span></span>
-        <span class="carga-stat"><span id="ca85-npedidos">1</span> pedido(s) &middot; <span id="ca85-nprodutos">2</span> produto(s)</span>
-        <span class="carga-stat carga-stat-pend"><b id="ca85-pend">7</b> pendentes</span>
-        <span id="ca85-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-bar-wrap"><span class="carga-bar"><span id="ca71-bar" class="carga-bar-fill pill-crit" style="width:0%"></span></span></span>
+        <span class="carga-stat"><span id="ca71-npedidos">1</span> pedido(s) &middot; <span id="ca71-nprodutos">2</span> produto(s)</span>
+        <span class="carga-stat carga-stat-pend"><b id="ca71-pend">7</b> pendentes</span>
+        <span id="ca71-pill" class="pill pill-crit pill-compact">0%</span>
         <span class="carga-cidades">CACHOEIRINHA/RS</span>
       </summary>
       <div class="carga-body">
@@ -2389,7 +2206,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <div class="pedido-head">
         <span class="pedido-tag">PEDIDO 75958</span>
         <span class="pedido-who">BRANES MERCADO LTDA &middot; CACHOEIRINHA/RS</span>
-        <span class="pedido-stat"><span id="pd86-nitens">2</span> item(ns) &middot; <b id="pd86-pend">7</b> un. pendentes</span>
+        <span class="pedido-stat"><span id="pd72-nitens">2</span> item(ns) &middot; <b id="pd72-pend">7</b> un. pendentes</span>
       </div>
       <table class="itens-table">
         <thead><tr><th>Produto</th><th>Feito&nbsp;/&nbsp;Necess&aacute;rio</th><th>Pendente</th><th>%</th><th>Marcar</th></tr></thead>
@@ -2397,12 +2214,13 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       data-necessario="4" data-feito="0" data-produto="139797 - SUPORTE TUBO FRONTAL ADEGA BAT RACK 81 X 27 X 1,55MM PTO"
       data-dia="2026-09-21" data-op-nome="OPERAÇÃO DE PINTURA" data-carga-num="20260811005" data-pedido-num="75958"
       data-un-nome="Metalúrgica"
-      data-day="dy62" data-op="op81" data-un="un82" data-carga="ca85" data-pedido="pd86">
+      data-day="dy48" data-op="op67" data-un="un68" data-carga="ca71" data-pedido="pd72">
       <td class="c-produto">139797 - SUPORTE TUBO FRONTAL ADEGA BAT RACK 81 X 27 X 1,55MM PTO</td>
       <td class="c-num">0<span class="slash">/</span>4</td>
       <td class="c-num c-pend"><span class="cell-pend">4</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="ibaf48020e9ecb6a7bde1"></span>
         <button type="button" class="mark-btn" data-key="ibaf48020e9ecb6a7bde1" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="ibaf48020e9ecb6a7bde1" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="ibaf48020e9ecb6a7bde1" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -2411,12 +2229,13 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       data-necessario="3" data-feito="0" data-produto="58866 - GANCHEIRA DUPLA P25 960MM C/ 4 GANCHOS 35CM GRAFITE"
       data-dia="2026-09-21" data-op-nome="OPERAÇÃO DE PINTURA" data-carga-num="20260811005" data-pedido-num="75958"
       data-un-nome="Metalúrgica"
-      data-day="dy62" data-op="op81" data-un="un82" data-carga="ca85" data-pedido="pd86">
+      data-day="dy48" data-op="op67" data-un="un68" data-carga="ca71" data-pedido="pd72">
       <td class="c-produto">58866 - GANCHEIRA DUPLA P25 960MM C/ 4 GANCHOS 35CM GRAFITE</td>
       <td class="c-num">0<span class="slash">/</span>3</td>
       <td class="c-num c-pend"><span class="cell-pend">3</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="ib8190fdbf8cbf866dbb7"></span>
         <button type="button" class="mark-btn" data-key="ib8190fdbf8cbf866dbb7" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="ib8190fdbf8cbf866dbb7" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="ib8190fdbf8cbf866dbb7" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -2430,17 +2249,17 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <summary>
         <span class="tw-open">&#9662;</span>
         <span class="un-name">Porta Pallet</span>
-        <span class="un-stat"><span id="un87-ncargas">1</span> carga(s) &middot; <span id="un87-nitens">3</span> produto(s) &middot; <b id="un87-pend">206</b> un. pendentes</span>
+        <span class="un-stat"><span id="un73-ncargas">1</span> carga(s) &middot; <span id="un73-nitens">3</span> produto(s) &middot; <b id="un73-pend">206</b> un. pendentes</span>
       </summary>
       <div class="un-body">
     <details class="carga-block">
       <summary>
         <span class="tw-open">&#9656;</span>
         <span class="carga-id">CARGA 20260708014</span>
-        <span class="carga-bar-wrap"><span class="carga-bar"><span id="ca88-bar" class="carga-bar-fill pill-crit" style="width:0%"></span></span></span>
-        <span class="carga-stat"><span id="ca88-npedidos">1</span> pedido(s) &middot; <span id="ca88-nprodutos">3</span> produto(s)</span>
-        <span class="carga-stat carga-stat-pend"><b id="ca88-pend">206</b> pendentes</span>
-        <span id="ca88-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-bar-wrap"><span class="carga-bar"><span id="ca74-bar" class="carga-bar-fill pill-crit" style="width:0%"></span></span></span>
+        <span class="carga-stat"><span id="ca74-npedidos">1</span> pedido(s) &middot; <span id="ca74-nprodutos">3</span> produto(s)</span>
+        <span class="carga-stat carga-stat-pend"><b id="ca74-pend">206</b> pendentes</span>
+        <span id="ca74-pill" class="pill pill-crit pill-compact">0%</span>
         <span class="carga-cidades">OTACILIO COSTA/SC</span>
       </summary>
       <div class="carga-body">
@@ -2448,7 +2267,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <div class="pedido-head">
         <span class="pedido-tag">PEDIDO 75092</span>
         <span class="pedido-who">GILSO TRISTAO DA CRUZ LTDA &middot; OTACILIO COSTA/SC</span>
-        <span class="pedido-stat"><span id="pd89-nitens">3</span> item(ns) &middot; <b id="pd89-pend">206</b> un. pendentes</span>
+        <span class="pedido-stat"><span id="pd75-nitens">3</span> item(ns) &middot; <b id="pd75-pend">206</b> un. pendentes</span>
       </div>
       <table class="itens-table">
         <thead><tr><th>Produto</th><th>Feito&nbsp;/&nbsp;Necess&aacute;rio</th><th>Pendente</th><th>%</th><th>Marcar</th></tr></thead>
@@ -2456,12 +2275,13 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       data-necessario="94" data-feito="0" data-produto="162045 - SAPATA PFDN 80 X 60 MONTANTE AMARELO"
       data-dia="2026-09-21" data-op-nome="OPERAÇÃO DE PINTURA" data-carga-num="20260708014" data-pedido-num="75092"
       data-un-nome="Porta Pallet"
-      data-day="dy62" data-op="op81" data-un="un87" data-carga="ca88" data-pedido="pd89">
+      data-day="dy48" data-op="op67" data-un="un73" data-carga="ca74" data-pedido="pd75">
       <td class="c-produto">162045 - SAPATA PFDN 80 X 60 MONTANTE AMARELO</td>
       <td class="c-num">0<span class="slash">/</span>94</td>
       <td class="c-num c-pend"><span class="cell-pend">94</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="if7c354a901a8384af088"></span>
         <button type="button" class="mark-btn" data-key="if7c354a901a8384af088" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="if7c354a901a8384af088" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="if7c354a901a8384af088" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -2470,12 +2290,13 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       data-necessario="56" data-feito="0" data-produto="162997 - BANDEJA BASE FRONTAL RETA 1F PFDN-STB PECA ESQUERDA PARA MONTATE 80X60"
       data-dia="2026-09-21" data-op-nome="OPERAÇÃO DE PINTURA" data-carga-num="20260708014" data-pedido-num="75092"
       data-un-nome="Porta Pallet"
-      data-day="dy62" data-op="op81" data-un="un87" data-carga="ca88" data-pedido="pd89">
+      data-day="dy48" data-op="op67" data-un="un73" data-carga="ca74" data-pedido="pd75">
       <td class="c-produto">162997 - BANDEJA BASE FRONTAL RETA 1F PFDN-STB PECA ESQUERDA PARA MONTATE 80X60</td>
       <td class="c-num">0<span class="slash">/</span>56</td>
       <td class="c-num c-pend"><span class="cell-pend">56</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="i5c2e96459ee06f482a14"></span>
         <button type="button" class="mark-btn" data-key="i5c2e96459ee06f482a14" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i5c2e96459ee06f482a14" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i5c2e96459ee06f482a14" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -2484,12 +2305,13 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       data-necessario="56" data-feito="0" data-produto="162998 - BANDEJA BASE FRONTAL RETA 1F PFDN-STB PECA DIREITA PARA MONTATE 80X60"
       data-dia="2026-09-21" data-op-nome="OPERAÇÃO DE PINTURA" data-carga-num="20260708014" data-pedido-num="75092"
       data-un-nome="Porta Pallet"
-      data-day="dy62" data-op="op81" data-un="un87" data-carga="ca88" data-pedido="pd89">
+      data-day="dy48" data-op="op67" data-un="un73" data-carga="ca74" data-pedido="pd75">
       <td class="c-produto">162998 - BANDEJA BASE FRONTAL RETA 1F PFDN-STB PECA DIREITA PARA MONTATE 80X60</td>
       <td class="c-num">0<span class="slash">/</span>56</td>
       <td class="c-num c-pend"><span class="cell-pend">56</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="ie693759ffc2c89cdf51a"></span>
         <button type="button" class="mark-btn" data-key="ie693759ffc2c89cdf51a" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="ie693759ffc2c89cdf51a" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="ie693759ffc2c89cdf51a" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -2505,25 +2327,25 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
         <span class="tw-open">&#9656;</span>
         <span class="op-rank">04</span>
         <span class="op-name">LIMPEZA</span>
-        <span class="op-stat"><span id="op90-ncargas">1</span> carga(s) &middot; <span id="op90-nitens">1</span> produto(s)</span>
-        <span class="op-stat-pend"><span id="op90-pend">1</span> un. pendentes</span>
+        <span class="op-stat"><span id="op76-ncargas">1</span> carga(s) &middot; <span id="op76-nitens">1</span> produto(s)</span>
+        <span class="op-stat-pend"><span id="op76-pend">1</span> un. pendentes</span>
       </summary>
       <div class="op-body">
     <details class="un-block" open>
       <summary>
         <span class="tw-open">&#9662;</span>
         <span class="un-name">Refrigeração</span>
-        <span class="un-stat"><span id="un91-ncargas">1</span> carga(s) &middot; <span id="un91-nitens">1</span> produto(s) &middot; <b id="un91-pend">1</b> un. pendentes</span>
+        <span class="un-stat"><span id="un77-ncargas">1</span> carga(s) &middot; <span id="un77-nitens">1</span> produto(s) &middot; <b id="un77-pend">1</b> un. pendentes</span>
       </summary>
       <div class="un-body">
     <details class="carga-block">
       <summary>
         <span class="tw-open">&#9656;</span>
         <span class="carga-id">CARGA 20260811005</span>
-        <span class="carga-bar-wrap"><span class="carga-bar"><span id="ca92-bar" class="carga-bar-fill pill-crit" style="width:0%"></span></span></span>
-        <span class="carga-stat"><span id="ca92-npedidos">1</span> pedido(s) &middot; <span id="ca92-nprodutos">1</span> produto(s)</span>
-        <span class="carga-stat carga-stat-pend"><b id="ca92-pend">1</b> pendentes</span>
-        <span id="ca92-pill" class="pill pill-crit pill-compact">0%</span>
+        <span class="carga-bar-wrap"><span class="carga-bar"><span id="ca78-bar" class="carga-bar-fill pill-crit" style="width:0%"></span></span></span>
+        <span class="carga-stat"><span id="ca78-npedidos">1</span> pedido(s) &middot; <span id="ca78-nprodutos">1</span> produto(s)</span>
+        <span class="carga-stat carga-stat-pend"><b id="ca78-pend">1</b> pendentes</span>
+        <span id="ca78-pill" class="pill pill-crit pill-compact">0%</span>
         <span class="carga-cidades">CACHOEIRINHA/RS</span>
       </summary>
       <div class="carga-body">
@@ -2531,7 +2353,7 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       <div class="pedido-head">
         <span class="pedido-tag">PEDIDO 75958</span>
         <span class="pedido-who">BRANES MERCADO LTDA &middot; CACHOEIRINHA/RS</span>
-        <span class="pedido-stat"><span id="pd93-nitens">1</span> item(ns) &middot; <b id="pd93-pend">1</b> un. pendentes</span>
+        <span class="pedido-stat"><span id="pd79-nitens">1</span> item(ns) &middot; <b id="pd79-pend">1</b> un. pendentes</span>
       </div>
       <table class="itens-table">
         <thead><tr><th>Produto</th><th>Feito&nbsp;/&nbsp;Necess&aacute;rio</th><th>Pendente</th><th>%</th><th>Marcar</th></tr></thead>
@@ -2539,12 +2361,13 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       data-necessario="1" data-feito="0" data-produto="163894 - PADR5N/1370/REF/G - BALCAO CONFEITARIA REFRIGERADA - C/ FRENTE IGUAL PADR4N- 5N 6000K- PTO"
       data-dia="2026-09-21" data-op-nome="LIMPEZA" data-carga-num="20260811005" data-pedido-num="75958"
       data-un-nome="Refrigeração"
-      data-day="dy62" data-op="op90" data-un="un91" data-carga="ca92" data-pedido="pd93">
+      data-day="dy48" data-op="op76" data-un="un77" data-carga="ca78" data-pedido="pd79">
       <td class="c-produto">163894 - PADR5N/1370/REF/G - BALCAO CONFEITARIA REFRIGERADA - C/ FRENTE IGUAL PADR4N- 5N 6000K- PTO</td>
       <td class="c-num">0<span class="slash">/</span>1</td>
       <td class="c-num c-pend"><span class="cell-pend">1</span></td>
       <td class="c-pill"><span class="pill pill-crit cell-pill">0%</span></td>
       <td class="c-mark">
+        <span class="peer-badge" data-key="i95261acd331705603a37"></span>
         <button type="button" class="mark-btn" data-key="i95261acd331705603a37" data-action="produzido" title="Marcar como produzido">&#10003;</button>
         <button type="button" class="mark-btn" data-key="i95261acd331705603a37" data-action="verificar" title="Marcar para verificar - precisa de atencao">!</button>
         <button type="button" class="mark-btn" data-key="i95261acd331705603a37" data-action="desconsiderar" title="Desconsiderar este item da analise">&#10005;</button>
@@ -2649,6 +2472,10 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
 (function() {
   let db = null;
   let marks = {};
+  let peerMarks = {};
+  const PEER_COLLECTION = 'marks_gerencial';
+  const PEER_PREFIX = 'G';
+  const PEER_LABEL = 'gerencial';
   const statusEl = document.getElementById('marks-status');
   const countEl = document.getElementById('marks-count');
   const clearBtn = document.getElementById('clear-marks');
@@ -2684,6 +2511,21 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
       row.classList.toggle('row-verificar', mark === 'verificar');
       row.classList.toggle('row-desconsiderar', mark === 'desconsiderar');
       row.querySelectorAll('.mark-btn').forEach(b => b.classList.toggle('active', b.dataset.action === mark));
+
+      // Badge somente-leitura mostrando a marcacao feita no OUTRO painel
+      // (nunca escreve, nunca afeta os agregados/KPIs deste painel).
+      const peerBadge = row.querySelector('.peer-badge');
+      if (peerBadge) {
+        const peer = peerMarks[key];
+        if (peer) {
+          const sym = peer === 'produzido' ? '✓' : peer === 'verificar' ? '!' : peer === 'desconsiderar' ? '✕' : '';
+          peerBadge.textContent = PEER_PREFIX + sym;
+          peerBadge.title = 'Marcado no painel ' + PEER_LABEL + ': ' + peer;
+        } else {
+          peerBadge.textContent = '';
+          peerBadge.title = '';
+        }
+      }
 
       const feito = mark === 'produzido' ? necessario : feitoOrig;
       const p = Math.max(necessario - feito, 0);
@@ -2796,6 +2638,17 @@ footer.note { margin-top: 28px; font-size: 11px; color: var(--muted); border-top
     }, err => {
       if (statusEl) statusEl.textContent = 'marcacoes indisponiveis no momento';
     });
+    // Leitura (nunca escrita) da colecao do OUTRO painel, so para exibir o
+    // badge informativo -- nao afeta nenhum agregado/KPI/senha deste painel.
+    db.collection(PEER_COLLECTION).onSnapshot(snap => {
+      const next = {};
+      snap.docs.forEach(docSnap => {
+        const data = docSnap.data();
+        if (data && data.status) next[docSnap.id] = data.status;
+      });
+      peerMarks = next;
+      recompute();
+    }, err => { /* leitura opcional -- se falhar, so o badge fica sempre vazio */ });
   }
 
   const MASTER_PASSWORD = 'adminmestre';
